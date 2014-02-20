@@ -1,4 +1,6 @@
 StudentPortal::Application.routes.draw do
+  get "create_event/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
