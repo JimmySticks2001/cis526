@@ -35,7 +35,7 @@ end
 
 def update
  @event = Event.find(params[:id])
- if #@event.update(params[:event].permit(:title, :start, :end, :sponsor, :additonalInfo))
+ if @event.update(event_params)
  #error from above line, not sure why
     redirect_to @event
  else
