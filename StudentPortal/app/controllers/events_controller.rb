@@ -12,7 +12,6 @@ def edit
 @event = Event.find(params[:id])
 end
 
-
 def show
 @event = Event.find(params[:id])
 end
@@ -22,7 +21,6 @@ def destroy
 @event.destroy
 redirect_to events_path
 end
-
 
 def create
 @event = Event.new(event_params)
@@ -36,7 +34,6 @@ end
 def update
  @event = Event.find(params[:id])
  if @event.update(event_params)
- #error from above line, not sure why
     redirect_to @event
  else
     render 'edit'
@@ -45,8 +42,6 @@ end
 
 private
   def event_params
-    params.require(:event).permit(:title, :start, :end, :sponsor, :additonalInfo)
+    params.require(:event).permit(:title, :start, :end, :sponsor, :additionalInfo)
   end
-
-
 end
