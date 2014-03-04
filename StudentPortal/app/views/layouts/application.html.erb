@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>StudentPortal</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <title>StudentPortal</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	
+	<body>
+		
+		<div id="header">
+			<div id="logo">
+				<%= image_tag "welcome/header-masthead-seal.png" %>
+			</div>
+			<div id="wordmark">
+				<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
+			</div>
+		</div>
+		
+		<div id="page">
+			<div id="nav">
+				<ul>
+					<li><a id="1" href="/">Home</a></li>
+					<li><a id="2" href="/events">Events</a></li>
+					<!--
+					<li><a id="3" href="/stats">Stuff</a></li>
+					<li><a id="4" href="/stats">Things</a></li>
+					<li><a id="6" href="/stats">Moar stuffs</a></li>
+					<li><a id="7" href="/stats">Moar things</a></li>
+					<li><a id="5" href="/stats">Self destruct</a></li>
+					-->
+				</ul>
+			</div>
+			
+			<div id="content">
+				<%= yield %>
+			</div>
+		
+		</div>
+		
+		<div id="footer">
+		footer
+			<!-- <img id="foots" src="footer.png"> -->
+		</div>
+	</body>
 </html>
