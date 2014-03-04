@@ -15,9 +15,9 @@
 	<br>
 	Title <%= f.text_field :title %>
 	<br>
-	Start Date <%= date_select :event, :start %>
+	Start Date <%= datetime_select :event, :start , :ampm => true, :minute_step => 15 %>
 	<br>
-	End Date <%= date_select :event, :end %>
+	End Date <%= datetime_select :event, :end , :ampm => true, :minute_step => 15 %>
 	<br>
 	Sponsor <%= f.text_field :sponsor %> 
 	food?<%= f.check_box :food,{},true,false%>

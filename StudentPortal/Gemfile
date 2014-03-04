@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Datetime validation, easy peasy
+gem 'validates_timeliness', '~> 3.0'

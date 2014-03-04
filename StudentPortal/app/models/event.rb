@@ -1,6 +1,12 @@
 class Event < ActiveRecord::Base
-
- validates :additionalInfo, 
+  
+  validates_datetime :start, :on_or_after => lambda { Date.current }
+  
+  validates_datetime :end, 
+  :after => :start
+  
+  
+  validates :additionalInfo, 
   length: {minimum: 0, maximum: 160},
   allow_blank: true, 
   format: { with: /.*[a-zA-Z].*/,
