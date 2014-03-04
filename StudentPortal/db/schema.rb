@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220213507) do
+ActiveRecord::Schema.define(version: 20140303214558) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20140220213507) do
     t.text     "additionalInfo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "food",           default: false
+    t.boolean  "swag",           default: false
+    t.boolean  "comp",           default: false
   end
 
 end
