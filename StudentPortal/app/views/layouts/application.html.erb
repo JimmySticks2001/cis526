@@ -8,15 +8,24 @@
 	</head>
 	
 	<body>
-		
 		<div id="header">
-			<div id="logo">
-				<%= image_tag "welcome/header-masthead-seal.png" %>
+		
+			<div id="clickables">
+				
+				<div id="signIn">
+					<form>
+					username: <input type="text" name="username">
+					password: <input type="password" name="password">
+					<input type="submit" name="submit" value="log in" id="submit">
+					</form>
+				</div>
+				
+				<div id="wordmark">
+					<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
+				</div>
+				
 			</div>
-			<div id="wordmark">
-				<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
-			</div>
-		</div>
+		</div> <!-- end header -->
 		
 		<div id="page">
 			<div id="nav">
@@ -33,15 +42,24 @@
 				</ul>
 			</div>
 			
+			
 			<div id="content">
 				<%= yield %>
 			</div>
+			
+			<div id="castle">
+				<%= image_tag "welcome/footer_castle.png" %>
+			</div>
+			
+			<div id="castleBlock">
+				<br>
+			</div>
 		
-		</div>
+		</div> <!-- end page -->
 		
 		<div id="footer">
-		footer
-			<!-- <img id="foots" src="footer.png"> -->
-		</div>
+			footer
+		</div> <!-- end footer -->
+		
 	</body>
 </html>
