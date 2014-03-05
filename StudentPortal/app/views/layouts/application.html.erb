@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>StudentPortal</title>
-	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	  <%= csrf_meta_tags %>
+	  	<title>StudentPortal</title>
+	  	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  	<%= csrf_meta_tags %>
 	</head>
 	
 	<body>
 		<div id="header">
-		
 			<div id="clickables">
-				
 				<div id="signIn">
 					<form>
-					username: <input type="text" name="username">
-					password: <input type="password" name="password">
-					<input type="submit" name="submit" value="log in" id="submit">
+						username: <input type="text" name="username">
+						password: <input type="password" name="password">
+						<input type="submit" name="submit" value="sign in" id="submit">
 					</form>
 				</div>
 				
 				<div id="wordmark">
 					<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
 				</div>
-				
 			</div>
 		</div> <!-- end header -->
 		
@@ -42,7 +39,6 @@
 				</ul>
 			</div>
 			
-			
 			<div id="content">
 				<%= yield %>
 			</div>
@@ -54,12 +50,10 @@
 			<div id="castleBlock">
 				<br>
 			</div>
-		
 		</div> <!-- end page -->
 		
 		<div id="footer">
 			footer
 		</div> <!-- end footer -->
-		
 	</body>
 </html>
