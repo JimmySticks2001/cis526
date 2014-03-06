@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20140303214558) do
     t.datetime "end"
     t.string   "sponsor"
     t.text     "additionalInfo"
+    t.boolean  "food",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "food",           default: false
     t.boolean  "swag",           default: false
     t.boolean  "comp",           default: false
   end
