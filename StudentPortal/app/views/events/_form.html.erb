@@ -13,23 +13,21 @@
 
   <p>
 	<br>
-	Title <%= f.text_field :title %>
+	Title <%= f.text_field :title, :size => "50" %>
+	<br>
+	Sponsor <%= f.text_field :sponsor, :size => "45" %>
 	<br>
 	Start Date <%= datetime_select :event, :start , :ampm => true, :minute_step => 15 %>
 	<br>
 	End Date <%= datetime_select :event, :end , :ampm => true, :minute_step => 15 %>
 	<br>
-	Sponsor <%= f.text_field :sponsor %> 
-	food?<%= f.check_box :food,{},true,false%>
-	
-	swag?<%= f.check_box :swag %> 
-	competition?<%= f.check_box :comp %>
-	<br>
-	<br>
 	Additional Information
 	<br>
-	<%= f.text_area :additionalInfo %>
+	<%= f.text_area :additionalInfo, :cols => "75", :rows => "5"  %>
 	<br>
+	food?<%= f.check_box :food %>
+	swag?<%= f.check_box :swag %> 
+	competition?<%= f.check_box :comp %>
   </p>
 
   <p>

@@ -1,39 +1,55 @@
-<p>
-  <strong>Title:</strong>
-<%= @event.title %>
-</p>
- 
-<p>
-  <strong>Sponsor:</strong>
-<%= @event.sponsor %>
-</p>
-<p>
-  <strong>Start Time:</strong>
-<%= @event.start %>
-</p>
-<p>
-  <strong>End Time:</strong>
-<%= @event.end %>
-</p>
+<h2>Event info</h2>
 
-<p>
-  <strong>Food:</strong>
-<%= @event.food %>
-</p>
-<p>
-  <strong>Swag:</strong>
-<%= @event.swag %>
-</p>
-<p>
-  <strong>Competition:</strong>
-<%= @event.comp %>
-</p>
-<p>
-  <strong>Additional Information:</strong>
-<%= @event.additionalInfo %>
-</p>
+<div id="eventBorder">
+
+	<h1><%= @event.title %></h1>
+	Sponsored by: <%= @event.sponsor %>
+
+	<p>
+		<strong>Start Time:</strong> <%= @event.start %>
+		<br>
+		<strong>End Time:</strong> <%= @event.end %>
+	</p>
+	
+	<p>
+		<%= @event.additionalInfo %>
+	</p>
+	
+	<p>
+		<% if @event.food == true %>
+			<a sayThings="Free food!" class="tooltip">
+				<%= image_tag "icons/pizza.png" %>
+			</a>
+		<% else %>
+			<a sayThings="No free food :(" class="tooltip">
+				<%= image_tag "icons/pizza.png" %>
+				<%= image_tag "icons/nope.png", :class => "toTheLeft" %>
+			</a>
+		<% end %>
+		
+		<% if @event.swag == true %>
+			<a sayThings="Free swag!" class="tooltip">
+				<%= image_tag "icons/swag.png" %>
+			</a>
+		<% else %>
+			<a sayThings="No free swag :(" class="tooltip">
+				<%= image_tag "icons/swag.png" %>
+				<%= image_tag "icons/nope.png", :class => "toTheLeft"  %>
+			</a>
+		<% end %>
+		
+		<% if @event.comp == true %>
+			<a sayThings="Compete for prizes!" class="tooltip">
+				<%= image_tag "icons/comp.png" %>
+			</a>
+		<% else %>
+			<a sayThings="No competition :(" class="tooltip">
+				<%= image_tag "icons/comp.png" %>
+				<%= image_tag "icons/nope.png", :class => "toTheLeft"  %>
+			</a>
+		<% end %>
+	</p>
+</div>
 
 
-
-<%= link_to 'Back to Events', events_path %>
-| <%= link_to 'Edit Event', edit_event_path(@event) %>
+<%= link_to 'Back to Events', events_path %> | <%= link_to 'Edit Event', edit_event_path(@event) %>
