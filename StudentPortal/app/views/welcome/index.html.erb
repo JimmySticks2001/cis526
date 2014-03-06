@@ -1,54 +1,113 @@
-<h1> Main page stuff will go here :D </h1>
+<h1> CIS student portal </h1>
 
-<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra ut lorem in dignissim. 
-	Phasellus tempus orci varius libero varius iaculis ut sit amet massa. Suspendisse semper 
-	sollicitudin aliquet. Curabitur nec laoreet felis. Pellentesque bibendum, ligula non 
-	hendrerit mattis, metus massa varius neque, quis condimentum nunc tellus sit amet est. 
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum ante sit amet
-	vulputate dapibus.
-</p>
+<div class="todayEvent">
+	
+	<% @event = Event.find( :first, :order => "start ASC") %>
+	
+	<div class="todaysEventHeader">
+		<h2><%= @event.title %></h2>
+		
+		<div class="todaysEventIcons">
+			<% if @event.food == true %>
+			<a sayThings="Free food!" class="tooltip">
+				<%= image_tag "icons/pizza.png", :size => '25x25' %>
+			</a>
+			<% else %>
+				<a sayThings="No free food :(" class="tooltip">
+					<%= image_tag "icons/pizza.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25', :class => "toTheLeft" %>
+				</a>
+			<% end %>
+			
+			<% if @event.swag == true %>
+				<a sayThings="Free swag!" class="tooltip">
+					<%= image_tag "icons/swag.png", :size => '25x25'  %>
+				</a>
+			<% else %>
+				<a sayThings="No free swag :(" class="tooltip">
+					<%= image_tag "icons/swag.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
+				</a>
+			<% end %>
+			
+			<% if @event.comp == true %>
+				<a sayThings="Compete for prizes!" class="tooltip">
+					<%= image_tag "icons/comp.png", :size => '25x25'  %>
+				</a>
+			<% else %>
+				<a sayThings="No competition :(" class="tooltip">
+					<%= image_tag "icons/comp.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
+				</a>
+			<% end %>
+		</div>
+	</div>
+	
+	Sponsored by: <%= @event.sponsor %>
 
-<p>
-	Vestibulum vitae ligula dapibus, tempus eros ac, sodales lectus. Proin lacinia nibh odio, 
-	id egestas nisi eleifend id. Cras imperdiet varius elit vel feugiat. Nulla facilisi. Cras 
-	faucibus mi sapien, vitae molestie risus feugiat sit amet. Aenean ultricies tincidunt 
-	orci vitae tempor. Nullam rhoncus dictum consectetur.
-</p>
+	<p>
+		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
+		<br>
+		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
+	</p>
+	
+	<p>
+		<%= @event.additionalInfo %>
+	</p>
+</div>
 
-<p>
-	Integer sed nulla laoreet, lacinia ligula ut, scelerisque enim. Etiam in nisl eu turpis 
-	interdum iaculis. Nullam id lorem vestibulum nunc facilisis feugiat et sed enim. Ut ut 
-	felis sagittis, auctor ante vitae, molestie elit. Donec velit magna, tempor at vulputate 
-	ut, vehicula malesuada eros. Nam interdum, magna tincidunt vulputate accumsan, dui quam 
-	malesuada libero, vitae cursus enim justo sit amet lorem. Integer interdum leo leo. 
-	Mauris venenatis sagittis auctor. Morbi commodo nec dolor ut dictum. Nunc nec tellus 
-	iaculis nisl adipiscing pharetra. Mauris in laoreet libero, ac hendrerit massa. Donec 
-	a lobortis odio. Maecenas laoreet viverra vehicula. Cras condimentum hendrerit justo, 
-	eu vehicula tellus gravida nec.
-</p>
+<div class="todayEvent">
+	
+	<% @event = Event.all()[1] %>
+	
+	<div class="todaysEventHeader">
+		<h2><%= @event.title %></h2>
+		
+		<div class="todaysEventIcons">
+			<% if @event.food == true %>
+			<a sayThings="Free food!" class="tooltip">
+				<%= image_tag "icons/pizza.png", :size => '25x25' %>
+			</a>
+			<% else %>
+				<a sayThings="No free food :(" class="tooltip">
+					<%= image_tag "icons/pizza.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25', :class => "toTheLeft" %>
+				</a>
+			<% end %>
+			
+			<% if @event.swag == true %>
+				<a sayThings="Free swag!" class="tooltip">
+					<%= image_tag "icons/swag.png", :size => '25x25'  %>
+				</a>
+			<% else %>
+				<a sayThings="No free swag :(" class="tooltip">
+					<%= image_tag "icons/swag.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
+				</a>
+			<% end %>
+			
+			<% if @event.comp == true %>
+				<a sayThings="Compete for prizes!" class="tooltip">
+					<%= image_tag "icons/comp.png", :size => '25x25'  %>
+				</a>
+			<% else %>
+				<a sayThings="No competition :(" class="tooltip">
+					<%= image_tag "icons/comp.png", :size => '25x25'  %>
+					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
+				</a>
+			<% end %>
+		</div>
+	</div>
+	
+	Sponsored by: <%= @event.sponsor %>
 
-<p>
-	Aliquam erat volutpat. In placerat sem non varius fermentum. Nulla eget leo neque. Cras 
-	consectetur ullamcorper aliquet. Quisque leo augue, accumsan gravida sollicitudin vel, 
-	pellentesque non justo. Morbi elementum massa nec lectus tincidunt, non posuere libero 
-	varius. Donec in mi suscipit, tristique metus quis, aliquam mi. Etiam dignissim a mauris 
-	vel ornare. Pellentesque lobortis, magna vel consectetur convallis, tellus magna pulvinar 
-	risus, vel elementum augue turpis sit amet nisl. Ut pellentesque diam volutpat magna 
-	tempus commodo. Pellentesque et eros malesuada, semper orci eu, mollis tellus. Vestibulum 
-	et purus ipsum. Fusce ac diam sit amet purus malesuada pretium. Nam at viverra erat, sit 
-	amet ultricies tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut 
-	sapien faucibus, lobortis ipsum nec, scelerisque elit.
-</p>
-
-<p>
-	Quisque ornare nibh quis pharetra mattis. Sed porttitor ac dolor eget suscipit. Suspendisse 
-	leo sapien, porttitor at tempor non, rhoncus ut lorem. Cum sociis natoque penatibus et 
-	magnis dis parturient montes, nascetur ridiculus mus. Phasellus volutpat non nulla vel 
-	lacinia. Nulla vel urna orci. In blandit, orci ac mollis rhoncus, massa nunc gravida 
-	leo, blandit porttitor ligula sapien nec leo. Nam tristique posuere mi, sed facilisis 
-	elit iaculis sit amet. Aenean auctor vitae risus malesuada sagittis. Nam et orci non odio 
-	euismod accumsan. Fusce viverra dapibus velit at convallis. Quisque ut diam mauris. Sed 
-	lobortis, tellus nec luctus interdum, dolor nulla dignissim felis, id accumsan orci arcu 
-	molestie elit. Pellentesque semper nisl nulla, et imperdiet elit adipiscing ut.
-</p>
+	<p>
+		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
+		<br>
+		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
+	</p>
+	
+	<p>
+		<%= @event.additionalInfo %>
+	</p>
+</div>

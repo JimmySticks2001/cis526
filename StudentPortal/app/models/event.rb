@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   
   
   validates :additionalInfo, 
-  length: {minimum: 0, maximum: 160},
+  length: {minimum: 0, maximum: 500},
   allow_blank: true, 
   format: { with: /.*[a-zA-Z].*/,
   message: "must include letters" }

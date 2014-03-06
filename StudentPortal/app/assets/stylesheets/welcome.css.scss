@@ -1,4 +1,6 @@
 /* ---------- global sytles go here ---------- */
+
+
 h1, h2, h3
 {
 	font-family: "Lucida Grande",Verdana,Arial,sans-serif;
@@ -10,6 +12,12 @@ body
 	margin: 0px;
 	background-color: rgb(238,237,232);
 }
+
+
+
+/* ---------- main page sytles go here ---------- */
+
+
 
 #header
 {
@@ -196,6 +204,9 @@ body
 
 
 /* ---------- Events related styles go here ---------- */
+
+
+
 #eventBorder
 {
 	padding: 10px 18px 10px 18px;
@@ -243,4 +254,45 @@ body
     left: 50%;
     position: absolute;
     z-index: 99;
+}
+
+
+
+/* ---------- home page sytles go here ---------- */
+
+
+
+.todayEvent
+{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	padding: 2px 10px 2px 10px;
+	background: rgb(238,237,232);
+	color: black;
+	border: 0px solid;
+    border-radius:10px;
+	text-decoration:none;
+}
+
+.todayEvent h2
+{
+	padding-top: 10px;
+	margin: 0px;
+}
+
+.todaysEventHeader
+{
+	border-bottom: 3px solid #d1d1c9;
+}
+
+.todaysEventIcons
+{
+	position: relative;
+	float: right;
+	width: 100px;
+	top: -25px;
 }
