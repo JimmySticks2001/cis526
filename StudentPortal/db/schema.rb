@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303214558) do
+ActiveRecord::Schema.define(version: 20140306212849) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20140303214558) do
     t.datetime "updated_at"
     t.boolean  "swag",           default: false
     t.boolean  "comp",           default: false
+  end
+
+  create_table "users", force: true do |t|
+    t.integer  "bitmask"
+    t.integer  "sessionID"
+    t.string   "userName"
+    t.string   "secPass"
+    t.string   "clubInfo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

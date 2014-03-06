@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bitmask: 1
+  sessionID: 1
+  userName: MyString
+  secPass: MyString
+  clubInfo: MyString
+
+two:
+  bitmask: 1
+  sessionID: 1
+  userName: MyString
+  secPass: MyString
+  clubInfo: MyString
