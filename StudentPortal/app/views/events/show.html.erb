@@ -6,9 +6,9 @@
 	Sponsored by: <%= @event.sponsor %>
 
 	<p>
-		<strong>Start Time:</strong> <%= @event.start %>
+		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
 		<br>
-		<strong>End Time:</strong> <%= @event.end %>
+		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
 	</p>
 	
 	<p>
