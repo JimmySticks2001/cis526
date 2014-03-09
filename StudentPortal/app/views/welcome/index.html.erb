@@ -1,113 +1,39 @@
 <h1> CIS student portal </h1>
 
-<div class="todayEvent">
-	
-	<% @event = Event.find( :first, :order => "start ASC") %>
-	
-	<div class="todaysEventHeader">
-		<h2><%= @event.title %></h2>
-		
-		<div class="todaysEventIcons">
-			<% if @event.food == true %>
-			<a sayThings="Free food!" class="tooltip">
-				<%= image_tag "icons/pizza.png", :size => '25x25' %>
-			</a>
-			<% else %>
-				<a sayThings="No free food :(" class="tooltip">
-					<%= image_tag "icons/pizza.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25', :class => "toTheLeft" %>
-				</a>
-			<% end %>
-			
-			<% if @event.swag == true %>
-				<a sayThings="Free swag!" class="tooltip">
-					<%= image_tag "icons/swag.png", :size => '25x25'  %>
-				</a>
-			<% else %>
-				<a sayThings="No free swag :(" class="tooltip">
-					<%= image_tag "icons/swag.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
-				</a>
-			<% end %>
-			
-			<% if @event.comp == true %>
-				<a sayThings="Compete for prizes!" class="tooltip">
-					<%= image_tag "icons/comp.png", :size => '25x25'  %>
-				</a>
-			<% else %>
-				<a sayThings="No competition :(" class="tooltip">
-					<%= image_tag "icons/comp.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
-				</a>
-			<% end %>
-		</div>
+<div class="frontPageEvents">
+
+	<div class="frontPageEventHeader">
+		<h2>Todays events</h2>
 	</div>
 	
-	Sponsored by: <%= @event.sponsor %>
-
-	<p>
-		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
-		<br>
-		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
-	</p>
-	
-	<p>
-		<%= @event.additionalInfo %>
-	</p>
-</div>
-
-<div class="todayEvent">
-	
-	<% @event = Event.all()[1] %>
-	
-	<div class="todaysEventHeader">
-		<h2><%= @event.title %></h2>
+	<% @events = Event.all( :order => "start ASC") %>
 		
-		<div class="todaysEventIcons">
-			<% if @event.food == true %>
-			<a sayThings="Free food!" class="tooltip">
-				<%= image_tag "icons/pizza.png", :size => '25x25' %>
-			</a>
-			<% else %>
-				<a sayThings="No free food :(" class="tooltip">
-					<%= image_tag "icons/pizza.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25', :class => "toTheLeft" %>
-				</a>
-			<% end %>
+		<table class="frontPageTables">
+			<% @events.each do |event| %>
+			<tr>
+				<% if event.start > DateTime.now.beginning_of_day && event.start < DateTime.now.end_of_day%>
 			
-			<% if @event.swag == true %>
-				<a sayThings="Free swag!" class="tooltip">
-					<%= image_tag "icons/swag.png", :size => '25x25'  %>
-				</a>
-			<% else %>
-				<a sayThings="No free swag :(" class="tooltip">
-					<%= image_tag "icons/swag.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
-				</a>
+					<td><strong><%= link_to event.title, event %></strong></td>
+					<td class="frontPageEventIcons">
+						<% if event.food == true %>
+							<a sayThings="Free food!" class="tooltip">
+								<%= image_tag "icons/pizza.png", :size => '20x20' %>
+							</a>
+						<% end %>
+						<% if event.swag == true %>
+							<a sayThings="Free swag!" class="tooltip">
+								<%= image_tag "icons/swag.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+						<% if event.comp == true %>
+							<a sayThings="Compete for prizes!" class="tooltip">
+								<%= image_tag "icons/comp.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+					</td>
+				<% end %>
+				
+			</tr>
 			<% end %>
-			
-			<% if @event.comp == true %>
-				<a sayThings="Compete for prizes!" class="tooltip">
-					<%= image_tag "icons/comp.png", :size => '25x25'  %>
-				</a>
-			<% else %>
-				<a sayThings="No competition :(" class="tooltip">
-					<%= image_tag "icons/comp.png", :size => '25x25'  %>
-					<%= image_tag "icons/nope.png", :size => '25x25' , :class => "toTheLeft"  %>
-				</a>
-			<% end %>
-		</div>
-	</div>
-	
-	Sponsored by: <%= @event.sponsor %>
-
-	<p>
-		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
-		<br>
-		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
-	</p>
-	
-	<p>
-		<%= @event.additionalInfo %>
-	</p>
+		</table>
 </div>

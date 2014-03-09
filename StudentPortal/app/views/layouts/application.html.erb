@@ -10,12 +10,16 @@
 	<body>
 		<div id="header">
 			<div id="clickables">
+
 				<div id="signIn">
-					<form>
-						username: <input type="text" name="username">
-						password: <input type="password" name="password">
-						<input type="submit" name="submit" value="sign in" id="submit">
-					</form>
+					 <% if current_user %>  
+						 Logged in as <%= current_user.userName %>  
+						<a  href="/log_out"><input type="submit" name="submit" value="log out" id="submit" ></a>
+					  <% else %>  
+						<a  href="/sign_up"><input type="submit" name="submit" value="sign up" id="submit" ></a>
+						<a  href="/log_in"><input type="submit" name="submit" value="sign in" id="submit"></a>
+					<% end %>
+					
 				</div>
 				
 				<div id="wordmark">
@@ -40,7 +44,10 @@
 			</div>
 			
 			<div id="content">
-				<%= yield %>
+			 <% flash.each do |name, msg| %>  
+    				<%= content_tag :div, msg, :id => "flash#{name}" %>  
+ 			 <% end %>  
+  			<%= yield %> 
 			</div>
 			
 			<div id="castle">

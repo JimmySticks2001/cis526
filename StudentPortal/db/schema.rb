@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306212849) do
+ActiveRecord::Schema.define(version: 20140309002721) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20140306212849) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "bitmask"
-    t.integer  "sessionID"
     t.string   "userName"
-    t.string   "secPass"
+    t.string   "passwordHash"
+    t.string   "passwordSalt"
+    t.integer  "bitmask"
     t.string   "clubInfo"
     t.datetime "created_at"
     t.datetime "updated_at"

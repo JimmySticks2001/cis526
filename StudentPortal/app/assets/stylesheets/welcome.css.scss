@@ -245,7 +245,8 @@ body
     width: 125px;
 }
 
-.tooltip:hover:before{
+.tooltip:hover:before
+{
     border: solid;
     border-color: rgb(113, 55, 189) transparent;
     border-width: 6px 6px 0 6px;
@@ -262,7 +263,7 @@ body
 
 
 
-.todayEvent
+.frontPageEvents
 {
 	width: 500px;
 	margin-left: auto;
@@ -278,21 +279,33 @@ body
 	text-decoration:none;
 }
 
-.todayEvent h2
+.frontPageEvents h2
 {
 	padding-top: 10px;
 	margin: 0px;
 }
 
-.todaysEventHeader
+.frontPageEvents a
+{
+	text-decoration: none;
+}
+
+
+.frontPageEventHeader
 {
 	border-bottom: 3px solid #d1d1c9;
 }
 
-.todaysEventIcons
+.frontPageTables
+{
+	width: 100%;
+}
+
+.frontPageEventIcons
 {
 	position: relative;
 	float: right;
 	width: 100px;
-	top: -25px;
+	top: 0px;
+	left: 0px;
 }
