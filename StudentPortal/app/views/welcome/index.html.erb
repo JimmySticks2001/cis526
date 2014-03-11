@@ -37,3 +37,41 @@
 			<% end %>
 		</table>
 </div>
+
+<div class="frontPageEvents">
+
+	<div class="frontPageEventHeader">
+		<h2>Upcoming events</h2>
+	</div>
+	
+	<% @events = Event.all( :order => "start ASC") %>
+		
+		<table class="frontPageTables">
+			<% @events.each do |event| %>
+			<tr>
+				<% if event.start > DateTime.now + 1.days && event.start < DateTime.now + 7.days%>
+			
+					<td><strong><%= link_to event.title, event %></strong></td>
+					<td class="frontPageEventIcons">
+						<% if event.food == true %>
+							<a sayThings="Free food!" class="tooltip">
+								<%= image_tag "icons/pizza.png", :size => '20x20' %>
+							</a>
+						<% end %>
+						<% if event.swag == true %>
+							<a sayThings="Free swag!" class="tooltip">
+								<%= image_tag "icons/swag.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+						<% if event.comp == true %>
+							<a sayThings="Compete for prizes!" class="tooltip">
+								<%= image_tag "icons/comp.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+					</td>
+				<% end %>
+				
+			</tr>
+			<% end %>
+		</table>
+</div>

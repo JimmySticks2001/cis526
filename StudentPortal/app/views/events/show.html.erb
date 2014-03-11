@@ -48,6 +48,14 @@
 				<%= image_tag "icons/nope.png", :class => "toTheLeft"  %>
 			</a>
 		<% end %>
+		
+		<% if @event.important == true %>
+			this is important
+		<% else %>
+			not important
+		<% end %>
+		
+		
 	</p>
 </div>
 

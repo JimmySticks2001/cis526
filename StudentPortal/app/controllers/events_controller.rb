@@ -42,6 +42,6 @@ end
 
 private
   def event_params
-    params.require(:event).permit(:title, :start, :end, :sponsor, :additionalInfo, :food, :swag, :comp)
+    params.require(:event).permit(:title, :start, :end, :sponsor, :additionalInfo, :food, :swag, :comp, :important)
   end
 end
