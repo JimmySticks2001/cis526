@@ -12,14 +12,23 @@
 			<div id="clickables">
 
 				<div id="signIn">
-					 <% if current_user %>  
-						 Logged in as <%= current_user.userName %>  
-						<a  href="/log_out"><input type="submit" name="submit" value="log out" id="submit" ></a>
-					  <% else %>  
-						<a  href="/sign_up"><input type="submit" name="submit" value="sign up" id="submit" ></a>
-						<a  href="/log_in"><input type="submit" name="submit" value="sign in" id="submit"></a>
+					<% if current_user %>  
+						Logged in as <%= current_user.userName %>  
+						<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
+					<% else %>
+						<%= form_tag sessions_path do %>  
+						
+							<%= label_tag :userName %><br />  
+							<%= text_field_tag :userName , params[:userName ] %>  
+							  
+							<%= label_tag :password %><br />  
+							<%= password_field_tag :password %>  
+							  
+							<%= submit_tag "sign in", id: 'submit'%> 
+						<% end %>  
+						 <!-- <a  href="/sign_up"><input type="submit" name="submit" value="sign up" id="submit" ></a>
+						<a  href="/log_in"><input type="submit" name="submit" value="sign in" id="submit"></a> -->
 					<% end %>
-					
 				</div>
 				
 				<div id="wordmark">
