@@ -1,5 +1,6 @@
 
 StudentPortal::Application.routes.draw do
+  get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   get "log_in" => "sessions#new", :as => "log_in"  
   get "log_out" => "sessions#destroy", :as => "log_out"  
   get "sign_up" => "users#new", :as => "sign_up"  
@@ -12,7 +13,7 @@ StudentPortal::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root :to =>"welcome#index"
+   root :to =>"calendar#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

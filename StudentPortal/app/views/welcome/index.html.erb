@@ -6,14 +6,14 @@
 		<h2>Todays events</h2>
 	</div>
 	
-	<% @events = Event.all( :order => "start ASC") %>
+	<% @events = Event.all( :order => "start_at ASC") %>
 		
 		<table class="frontPageTables">
 			<% @events.each do |event| %>
 			<tr>
-				<% if event.start > DateTime.now.beginning_of_day && event.start < DateTime.now.end_of_day%>
+				<% if event.start_at > DateTime.now.beginning_of_day && event.start_at < DateTime.now.end_of_day%>
 			
-					<td><strong><%= link_to event.title, event %></strong></td>
+					<td><strong><%= link_to event.name, event %></strong></td>
 					<td class="frontPageEventIcons">
 						<% if event.food == true %>
 							<a sayThings="Free food!" class="tooltip">
@@ -44,14 +44,14 @@
 		<h2>Upcoming events</h2>
 	</div>
 	
-	<% @events = Event.all( :order => "start ASC") %>
+	<% @events = Event.all( :order => "start_at ASC") %>
 		
 		<table class="frontPageTables">
 			<% @events.each do |event| %>
 			<tr>
-				<% if event.start > DateTime.now + 1.days && event.start < DateTime.now + 7.days%>
+				<% if event.start_at > DateTime.now + 1.days && event.start_at < DateTime.now + 7.days%>
 			
-					<td><strong><%= link_to event.title, event %></strong></td>
+					<td><strong><%= link_to event.name, event %></strong></td>
 					<td class="frontPageEventIcons">
 						<% if event.food == true %>
 							<a sayThings="Free food!" class="tooltip">
@@ -75,3 +75,6 @@
 			<% end %>
 		</table>
 </div>
+
+
+<%= raw(event_calendar) %>

@@ -2,13 +2,13 @@
 
 <div id="eventBorder">
 
-	<h1><%= @event.title %></h1>
+	<h1><%= @event.name %></h1>
 	Sponsored by: <%= @event.sponsor %>
 
 	<p>
-		<strong>Start Time:</strong> <%= @event.start.to_formatted_s(:long) %>
+		<strong>Start Time:</strong> <%= @event.start_at.to_formatted_s(:long) %>
 		<br>
-		<strong>End Time:</strong> <%= @event.end.to_formatted_s(:long) %>
+		<strong>End Time:</strong> <%= @event.end_at.to_formatted_s(:long) %>
 	</p>
 	
 	<p>

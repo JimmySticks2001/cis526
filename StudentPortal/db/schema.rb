@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311193010) do
+ActiveRecord::Schema.define(version: 20140318012331) do
 
   create_table "events", force: true do |t|
-    t.string   "title"
-    t.datetime "start"
-    t.datetime "end"
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.string   "sponsor"
     t.text     "additionalInfo"
     t.boolean  "food",           default: false

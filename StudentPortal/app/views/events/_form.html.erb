@@ -13,13 +13,13 @@
 
   <p>
 	<br>
-	Title <%= f.text_field :title, :size => "50" %>
+	Title <%= f.text_field :name, :size => "50" %>
 	<br>
 	Sponsor <%= f.text_field :sponsor, :size => "45" %>
 	<br>
-	Start Date <%= datetime_select :event, :start , :ampm => true, :minute_step => 15 %>
+	Start Date <%= datetime_select :event, :start_at , :ampm => true, :minute_step => 15 %>
 	<br>
-	End Date <%= datetime_select :event, :end , :ampm => true, :minute_step => 15 %>
+	End Date <%= datetime_select :event, :end_at , :ampm => true, :minute_step => 15 %>
 	<br>
 	Additional Information
 	<br>

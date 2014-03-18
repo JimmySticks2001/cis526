@@ -13,9 +13,9 @@
 		</tr>
 		<% @events.each do |event| %>
 		<tr>
-			<td><%= event.title %></td>
-			<td><%= event.start.to_formatted_s(:long) %></td>
-			<td><%= event.end.to_formatted_s(:long) %></td>
+			<td><%= event.name %></td>
+			<td><%= event.start_at.to_formatted_s(:long) %></td>
+			<td><%= event.end_at.to_formatted_s(:long) %></td>
 			<td><%= event.food %></td>
 			<td><%= event.swag %></td>
 			<td><%= event.comp %></td>

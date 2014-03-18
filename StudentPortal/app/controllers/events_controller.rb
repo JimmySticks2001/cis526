@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 def index
-  @events = Event.all( :order => "start ASC")
+  @events = Event.all( :order => "start_at ASC")
 end
 
 def new
@@ -42,6 +42,6 @@ end
 
 private
   def event_params
-    params.require(:event).permit(:title, :start, :end, :sponsor, :additionalInfo, :food, :swag, :comp, :important)
+    params.require(:event).permit(:name, :start_at, :end_at, :sponsor, :additionalInfo, :food, :swag, :comp, :important)
   end
 end

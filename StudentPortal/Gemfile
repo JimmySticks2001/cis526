@@ -50,3 +50,6 @@ end
 
 # Datetime validation, easy peasy
 gem 'validates_timeliness', '~> 3.0'
+
+# Calendar stuff
+gem 'event-calendar', :require => 'event_calendar'
