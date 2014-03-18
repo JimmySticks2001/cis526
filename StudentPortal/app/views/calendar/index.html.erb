@@ -45,7 +45,7 @@
 	<table class="frontPageTables">
 		<% @events.each do |event| %>
 		<tr>
-			<% if event.start_at > DateTime.now + 1.days && event.start_at < DateTime.now + 7.days%>
+			<% if event.start_at > DateTime.now.beginning_of_day + 1.days && event.start_at < DateTime.now.beginning_of_day + 7.days && event.important == true%>
 		
 				<td><strong><%= link_to event.name, event %></strong></td>
 				<td class="frontPageEventIcons">
