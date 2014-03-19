@@ -28,5 +28,15 @@ class Event < ActiveRecord::Base
       		return "#83bd37"
    		end
 	end
-  
+	
+	
+	def self.import(file)
+		CSV.foreach(file.path, headers: true) do |row|
+			event = find_by_id(row["id"]) || new
+			parameters = ActionController::Parameters.new(row.to_hash)
+			event.update(parameters.permit(:name, :start_at, :end_at, :sponsor, :additionalInfo, :food, :swag, :comp, :important))
+			event.save!
+		end
+	end
+		
 end

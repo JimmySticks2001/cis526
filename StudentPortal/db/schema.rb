@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20140318012331) do
     t.string   "sponsor"
     t.text     "additionalInfo"
     t.boolean  "food",           default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.boolean  "swag",           default: false
     t.boolean  "comp",           default: false
     t.boolean  "important",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

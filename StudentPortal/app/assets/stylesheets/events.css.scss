@@ -1,3 +1,54 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#eventBorder
+{
+	padding: 10px 18px 10px 18px;
+	background: rgb(238,237,232);
+	color: black;
+	border: 0px solid;
+    border-radius:10px;
+	text-decoration:none;
+}
+
+.toTheLeft
+{
+	position: absolute;
+	left: 0px;
+}
+
+.tooltip
+{
+    display: inline;
+    position: relative;
+    
+}
+
+.tooltip:hover:after
+{
+    background: #333;
+    background: rgba(113, 55, 189,0.8);
+    border-radius: 5px;
+    bottom: 50px;
+    color: #fff;
+    content: attr(sayThings);
+    left: -25px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 98;
+    width: 125px;
+}
+
+.tooltip:hover:before
+{
+    border: solid;
+    border-color: rgb(113, 55, 189) transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 44px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
