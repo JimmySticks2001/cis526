@@ -8,28 +8,29 @@
 <%= link_to 'New event', new_event_path %>
 <br/>
 <br/>
+<div class="events_table" >
 	<table>
 		<tr>
-			<th>Event</th>
-			<th>StartTime</th>
-			<th>EndTime</th>
-			<th>Food</th>
-			<th>Swag</th>
-			<th>Comp</th>
-			<th>Important</th>
+			<td>Event</td>
+			<td>StartTime</td>
+			<td>EndTime</td>
+			<td>Food</td>
+			<td>Swag</td>
+			<td>Comp</td>
+			<td>Important</td>
 		</tr>
 		<% @events.each do |event| %>
 		<tr>
-			<td><%= event.name %></td>
+			<td><strong><%= link_to event.name, event %></strong></td>
 			<td><%= event.start_at.to_formatted_s(:long) %></td>
 			<td><%= event.end_at.to_formatted_s(:long) %></td>
 			<td><%= event.food %></td>
 			<td><%= event.swag %></td>
 			<td><%= event.comp %></td>
 			<td><%= event.important %></td>
-			<td><%= link_to 'Show', event %></td>
 			<td><%= link_to 'Edit', edit_event_path(event) %></td>
 			<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
 		</tr>
 		<% end %>
-</table>
+	</table>
+</div>

@@ -190,14 +190,26 @@
 
 /* ---------- home page sytles go here ---------- */
 
+#wat
+{
+	
+}
 
+#leftEvent
+{
+	float: left;
+}
+
+#rightEvent
+{
+	float: right;
+}
 
 
 .frontPageEvents
 {
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
+	width: 440px;
+	
 	margin-top: 15px;
 	margin-bottom: 15px;
 	
@@ -207,19 +219,19 @@
 	border: 0px solid;
     border-radius:10px;
 	text-decoration:none;
+	
+	h2
+	{
+		padding-top: 10px;
+		margin: 0px;
+	}
+	
+	a
+	{
+		text-decoration: none;
+	}
+	
 }
-
-.frontPageEvents h2
-{
-	padding-top: 10px;
-	margin: 0px;
-}
-
-.frontPageEvents a
-{
-	text-decoration: none;
-}
-
 
 .frontPageEventHeader
 {
