@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end  
     
   def create  
-    @user = User.new(user_params) 
+  @user = User.new(user_params) 
+  if @user.save  
     if @user.admin?
 	r = Role.find(:first, :conditions => [ "name = ?", 'Admin'])	
 	r.users << @user
@@ -20,9 +21,6 @@ class UsersController < ApplicationController
 	r.users << @user
 	#@user.roles << r 
    end
-
-
-    if @user.save  
       redirect_to root_url, :notice => "Signed up!"  
     else  
       render "new"  
