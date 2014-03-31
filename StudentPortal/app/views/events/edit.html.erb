@@ -1,6 +1,14 @@
+
+<% if current_user.present? %>
+	<% if current_user.faculty? or current_user.admin?  %>
+
 <h1>Editing Event</h1>
 
 <%= render 'form'  %>
 
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>
+<% else %>
+<% unauthorized  events_path %>
+<% end %>
+<% end %>

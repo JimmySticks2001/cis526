@@ -1,7 +1,6 @@
 <h2>Event info</h2>
 
 <div id="eventBorder">
-
 	<h1><%= @event.name %></h1>
 	Sponsored by: <%= @event.sponsor %>
 
@@ -59,11 +58,10 @@
 	</p>
 </div>
 
-
 <%= link_to 'Back to Events', events_path %> |
 
 <% if current_user.present? %>
-	<% if current_user.faculty? %>
+	<% if current_user.faculty? or current_user.admin? %>
 		<td><%= link_to 'Edit', edit_event_path(@event) %></td>
 	<% end %>
 <% end %>

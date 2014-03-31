@@ -17,12 +17,15 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
+	if current_user.present? && (current_user.admin? or current_user.faculty?)
 	  	@event = Event.find(params[:id])
 	  	@event.destroy
 	  	redirect_to events_path
 	end
+	end
 
 	def create
+	if current_user.present? && (current_user.admin? or current_user.faculty?)
 	  	@event = Event.new(event_params)
 	  	if @event.save
 			redirect_to @event
@@ -30,14 +33,17 @@ class EventsController < ApplicationController
 		  	render 'new'
 		end
 	end
+	end
 
 	def update
+	if current_user.present? && (current_user.admin? or current_user.faculty?)
 	  	@event = Event.find(params[:id])
 	  	if @event.update(event_params)
 			redirect_to @event
 			else
 		  	render 'edit'
 		end
+	end
 	end
 
 	def import

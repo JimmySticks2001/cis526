@@ -5,7 +5,7 @@
 
 <br/>
 <% if current_user.present? %>
-	<% if current_user.faculty? %>
+	<% if current_user.faculty? or current_user.admin?  %>
 		<%= link_to 'New event', new_event_path %>
 	<% end %>
 <% end %>
@@ -33,7 +33,7 @@
 			<td><%= event.comp %></td>
 			<td><%= event.important %></td>
 			<% if current_user.present? %>
-				<% if current_user.faculty? %>
+				<% if current_user.faculty? or current_user.admin?  %>
 					<td><%= link_to 'Edit', edit_event_path(event) %></td>
 					<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
 				<% end %>
