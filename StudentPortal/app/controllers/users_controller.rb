@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     
   def create  
   @user = User.new(user_params) 
-    if @user.save  
+  if @user.save  
     if @user.admin?
 	r = Role.find(:first, :conditions => [ "name = ?", 'Admin'])	
 	r.users << @user
