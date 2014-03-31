@@ -23,5 +23,13 @@
     <%= f.label :password_confirmation %>  
     <%= f.password_field :password_confirmation %>  
   </p>  
+<p>
+<%= f.check_box(:admin) %>
+<%= f.label(:admin, "Admin") %>
+<%= f.check_box(:student) %>
+<%= f.label(:student, "Student") %>
+<%= f.check_box(:faculty) %>
+<%= f.label(:faculty, "Faculty") %>
+</p>
   <p class="button"><%= f.submit %></p>  
 <% end %>  

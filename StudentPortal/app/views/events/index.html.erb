@@ -4,8 +4,12 @@
 <% end %>
 
 <br/>
+<% if current_user.present? %>
+	<% if current_user.faculty? %>
+		<%= link_to 'New event', new_event_path %>
+	<% end %>
+<% end %>
 
-<%= link_to 'New event', new_event_path %>
 <br/>
 <br/>
 <div class="events_table" >
@@ -28,8 +32,13 @@
 			<td><%= event.swag %></td>
 			<td><%= event.comp %></td>
 			<td><%= event.important %></td>
-			<td><%= link_to 'Edit', edit_event_path(event) %></td>
-			<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+			<% if current_user.present? %>
+				<% if current_user.faculty? %>
+					<td><%= link_to 'Edit', edit_event_path(event) %></td>
+					<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+				<% end %>
+			<% end %>
+		
 		</tr>
 		<% end %>
 	</table>

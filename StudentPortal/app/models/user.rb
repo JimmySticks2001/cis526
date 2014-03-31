@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base  
- 
+  has_many :assignments
+  has_many :roles, :through => :assignments
+
+
   #add more validation in User model for validations for password length and email format  
 
   attr_accessor :password  

@@ -4,7 +4,24 @@ class UsersController < ApplicationController
   end  
     
   def create  
-    @user = User.new(user_params)  
+    @user = User.new(user_params) 
+    if @user.admin?
+	r = Role.find(:first, :conditions => [ "name = ?", 'Admin'])	
+	r.users << @user
+	#@user.roles << r 
+   end
+    if @user.student?
+	r = Role.find(:first, :conditions => [ "name = ?", 'Student'])	
+	r.users << @user
+	#@user.roles << r 
+   end 
+    if @user.faculty?
+	r = Role.find(:first, :conditions => [ "name = ?", 'Faculty'])	
+	r.users << @user
+	#@user.roles << r 
+   end
+
+
     if @user.save  
       redirect_to root_url, :notice => "Signed up!"  
     else  
@@ -17,7 +34,7 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:userName, :password, :bitmask, :passwordHash, :passwordSalt, :clubInfo)
+    params.require(:user).permit(:userName, :password, :bitmask, :passwordHash, :passwordSalt, :clubInfo, :admin, :student, :faculty)
   end
 
 end  
