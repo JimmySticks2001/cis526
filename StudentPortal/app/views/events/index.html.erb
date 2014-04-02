@@ -1,11 +1,11 @@
-<%= form_tag import_events_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 
 <br/>
 <% if current_user.present? %>
 	<% if current_user.faculty? or current_user.admin?  %>
+		<%= form_tag import_events_path, multipart: true do %>
+ 			 <%= file_field_tag :file %>
+  			 <%= submit_tag "Import" %>
+		<% end %>
 		<%= link_to 'New event', new_event_path %>
 	<% end %>
 <% end %>

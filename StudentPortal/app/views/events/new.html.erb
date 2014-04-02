@@ -1,10 +1,13 @@
+
+
 <% if current_user.present? %>
 	<% if current_user.faculty? or current_user.admin?  %>
 
-<hi>New Event</h1>
-<%= render 'form' %>
-<%= link_to 'Back', events_path %>
+		<hi>New Event</h1>
+		<%= render 'form' %>
+		<%= link_to 'Back', events_path %>
+	<% end %>
 <% else %>
-<% unauthorized  events_path %>
-<% end %>
+	<% unauthorized  events_path %>
+	
 <% end %>
