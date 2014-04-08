@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331070330) do
+ActiveRecord::Schema.define(version: 20140408201026) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_imports", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +35,16 @@ ActiveRecord::Schema.define(version: 20140331070330) do
     t.boolean  "swag",           default: false
     t.boolean  "comp",           default: false
     t.boolean  "important",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "kind"
+    t.string   "title"
+    t.text     "desc"
+    t.string   "poster"
+    t.string   "host"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

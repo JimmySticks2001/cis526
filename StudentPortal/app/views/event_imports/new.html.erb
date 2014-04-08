@@ -1,0 +1,29 @@
+<p>A CSV or Excel file can be used to import events. The first row should be the column name. The following columns are allowed.</p>
+
+<ul>
+  <% Event.columns.each do |column| %>
+  	<% if column.name.in? ["name", "start_at", "end_at", "sponsor", "additionalInfo", "food", "swag", "comp", "important"] %>
+	  <li>
+	    <strong><%= column.name %></strong> - <%= column.type.to_s.titleize %> type
+	  </li>
+	<% end %>
+  <% end %>
+</ul>
+
+<%= form_for @event_import do |f| %>
+  <% if @event_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_import.errors.count, "error") %> prohibited this import from completing:</h2>
+      <ul>
+      <% @event_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :file %>
+  </div>
+  <div class="buttons"><%= f.submit "Import" %></div>
+<% end %>

@@ -1,5 +1,7 @@
 
 StudentPortal::Application.routes.draw do
+  resources :jobs
+
   get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   get "log_in" => "sessions#new", :as => "log_in"  
   get "log_out" => "sessions#destroy", :as => "log_out"  

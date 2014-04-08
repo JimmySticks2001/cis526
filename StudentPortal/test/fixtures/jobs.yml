@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  title: MyString
+  desc: MyText
+  poster: MyString
+  host: MyString
+
+two:
+  kind: MyString
+  title: MyString
+  desc: MyText
+  poster: MyString
+  host: MyString

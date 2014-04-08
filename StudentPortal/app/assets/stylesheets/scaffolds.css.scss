@@ -1,5 +1,4 @@
-body 
-{
+body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -7,80 +6,53 @@ body
   line-height: 18px;
 }
 
-h1, h2, h3
-{
-	font-family: "Lucida Grande",Verdana,Arial,sans-serif;
-	color: #512888;
-}
-
-body
-{
-	margin: 0px;
-	background-color: rgb(238,237,232);
-}
-
-a
-{
-	text-decoration: none;
-	color: #7137bd;
-}
-
-
-
-p, ol, ul, td 
-{
+p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
-pre 
-{
+pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-div 
-{
-  &.field, &.actions 
-  {
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
     margin-bottom: 10px;
   }
 }
 
-#flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 20px 0;
+#notice {
+  color: green;
 }
 
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
-
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-
-.field_with_errors 
-{
+.field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-#error_explanation 
-{
+#error_explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-  h2 
-  {
+  h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
@@ -90,8 +62,7 @@ div
     background-color: #c00;
     color: #fff;
   }
-  ul li 
-  {
+  ul li {
     font-size: 12px;
     list-style: square;
   }
