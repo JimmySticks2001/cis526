@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  contact_info: MyString
+  club_page_link: MyString
+  sponsor: MyString
+
+two:
+  name: MyString
+  description: MyText
+  contact_info: MyString
+  club_page_link: MyString
+  sponsor: MyString
