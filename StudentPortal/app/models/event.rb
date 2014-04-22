@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 	searchable do
 		text :additionalInfo, :boost => 3
 		text :name, :boost => 5
-		text :sponsor, date_start, date_end		
+		text :sponsor, :date_start, :date_end		
 	end
   	has_event_calendar
   
