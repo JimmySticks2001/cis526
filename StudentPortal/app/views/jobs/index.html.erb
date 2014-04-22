@@ -3,6 +3,13 @@
   <br>
 <% end %>
 
+<% form_tag jobs_path, :method => :get do %>
+  <p>
+    <%= text_field_tag : search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <% @jobs.each do |job| %>
   <div class = "aJob">
     <% if mobile_device? %>
@@ -23,6 +30,7 @@
           <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       <% end %>
+
     <% end %>
   </div>
 <% end %>

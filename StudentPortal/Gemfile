@@ -53,3 +53,6 @@ gem 'validates_timeliness', '~> 3.0'
 
 # Calendar stuff
 gem 'event-calendar', :require => 'event_calendar'
+
+# Search/Filter
+gem 'sunspot_rails'
