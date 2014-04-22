@@ -1,45 +1,56 @@
-
-<br/>
-<% if current_user.present? %>
-	<% if current_user.faculty? or current_user.admin?  %>
-		<%= form_tag import_events_path, multipart: true do %>
- 			 <%= file_field_tag :file %>
-  			 <%= submit_tag "Import" %>
-		<% end %>
-		<%= link_to 'New event', new_event_path %>
-	<% end %>
-<% end %>
-
-<br/>
-<br/>
-<div class="events_table" >
-	<table>
-		<tr>
-			<td>Event</td>
-			<td>StartTime</td>
-			<td>EndTime</td>
-			<td>Food</td>
-			<td>Swag</td>
-			<td>Comp</td>
-			<td>Important</td>
-		</tr>
-		<% @events.each do |event| %>
-		<tr>
-			<td><strong><%= link_to event.name, event %></strong></td>
-			<td><%= event.start_at.to_formatted_s(:long) %></td>
-			<td><%= event.end_at.to_formatted_s(:long) %></td>
-			<td><%= event.food %></td>
-			<td><%= event.swag %></td>
-			<td><%= event.comp %></td>
-			<td><%= event.important %></td>
-			<% if current_user.present? %>
-				<% if current_user.faculty? or current_user.admin?  %>
-					<td><%= link_to 'Edit', edit_event_path(event) %></td>
-					<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-				<% end %>
+<% if !mobile_device? %>
+	<br/>
+	<% if current_user.present? %>
+		<% if current_user.faculty? or current_user.admin?  %>
+			<%= form_tag import_events_path, multipart: true do %>
+	 			 <%= file_field_tag :file %>
+	  			 <%= submit_tag "Import" %>
 			<% end %>
-		
-		</tr>
+			<%= link_to 'New event', new_event_path %>
 		<% end %>
-	</table>
-</div>
+	<% end %>
+
+	<br/>
+	<br/>
+	<div class="events_table" >
+		<table>
+			<tr>
+				<td>Event</td>
+				<td>StartTime</td>
+				<td>EndTime</td>
+				<td>Food</td>
+				<td>Swag</td>
+				<td>Comp</td>
+				<td>Important</td>
+			</tr>
+			<% @events.each do |event| %>
+			<tr>
+				<td><strong><%= link_to event.name, event %></strong></td>
+				<td><%= event.start_at.to_formatted_s(:long) %></td>
+				<td><%= event.end_at.to_formatted_s(:long) %></td>
+				<td><%= event.food %></td>
+				<td><%= event.swag %></td>
+				<td><%= event.comp %></td>
+				<td><%= event.important %></td>
+				<% if current_user.present? %>
+					<% if current_user.faculty? or current_user.admin?  %>
+						<td><%= link_to 'Edit', edit_event_path(event) %></td>
+						<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+					<% end %>
+				<% end %>
+			
+			</tr>
+			<% end %>
+		</table>
+	</div>
+<% else %>
+	<div id="mobile_events_list">
+		<% @events = Event.all( :order => "start_at ASC") %>
+
+		<ul>
+			<% @events.each do |event| %>
+				<h3><li><%= link_to event.name, event %></li></h3>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

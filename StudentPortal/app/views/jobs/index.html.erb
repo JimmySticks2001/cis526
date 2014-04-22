@@ -1,35 +1,39 @@
-<h1>Listing jobs</h1>
+<% if !mobile_device? %>
+  <br>
+  <br>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Kind</th>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Poster</th>
-      <th>Host</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.kind %></td>
-        <td><%= job.title %></td>
-        <td><%= job.desc %></td>
-        <td><%= job.poster %></td>
-        <td><%= job.host %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @jobs.each do |job| %>
+  <div class = "aJob">
+    <% if mobile_device? %>
+      <h2><%= link_to job.title + " at " + job.poster, job %></h2>
+    <% else %>
+      <h2><%= job.title %></h2>
+      <br>
+      Type: <%= job.kind %>
+      <br>
+      From: <%= job.host %> @ <%= job.poster %>
+      <br>
+      <br>
+      <%= job.desc %>
+      <br>
+      <% if current_user.present? %>
+        <% if current_user.faculty? or current_user.admin?  %>
+          <%= link_to 'Edit', edit_job_path(job) %> |
+          <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+<% if !mobile_device? %>
+  <% if current_user.present? %>
+    <% if current_user.faculty? or current_user.admin?  %>
+      <%= link_to 'New Job', new_job_path %>
+    <% end %>
+  <% end %>
+<% end %>
+

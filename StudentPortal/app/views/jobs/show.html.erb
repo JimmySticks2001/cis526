@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @job.kind %>
-</p>
+<div class = "aJob">
 
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
+  <p>
+    <strong>Title:</strong> <%= @job.title %>
+  </p>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @job.desc %>
-</p>
+  <p>
+    <strong>Type:</strong> <%= @job.kind %>
+  </p>
 
-<p>
-  <strong>Poster:</strong>
-  <%= @job.poster %>
-</p>
+  <p>
+    <strong>From: </strong> <%= @job.host %> @ <%= @job.poster %>
+  </p>
 
-<p>
-  <strong>Host:</strong>
-  <%= @job.host %>
-</p>
+  <p>
+    <strong>Description:</strong> 
+    <br>
+    <%= @job.desc %>
+  </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+
+  <% if !mobile_device? %>
+    <%= link_to 'Edit', edit_job_path(@job) %>
+  <% end %>
+</div>

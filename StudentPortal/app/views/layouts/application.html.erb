@@ -2,10 +2,18 @@
 <html>
 	<head>
 	  	<title>StudentPortal</title>
-	  	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-		<%= stylesheet_link_tag "event_calendar" %>
-	  	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-		<%= javascript_include_tag "event_calendar" %>
+        
+		<% if mobile_device? %>
+			<%= stylesheet_link_tag "mobile/mobile" %>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		<% else %>
+			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+			<%= stylesheet_link_tag "event_calendar" %>
+			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+			<%= javascript_include_tag "event_calendar" %>
+		<% end %>
+
+		
 	  	<%= csrf_meta_tags %>
 	</head>
 	
@@ -13,29 +21,31 @@
 		<div id="header">
 			<div id="clickables">
 
-				<div id="signIn">
-					<% if current_user %>  
-						Logged in as <%= current_user.userName %>  
-						<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
-					<% else %>
-						<%= form_tag sessions_path do %>  
-						
-							<%= label_tag :userName %><br />  
-							<%= text_field_tag :userName , params[:userName ] %>  
-							  
-							<%= label_tag :password %><br />  
-							<%= password_field_tag :password %>  
-							  
-							<%= submit_tag "sign in", id: 'submit'%> 
-						<% end %>  
-						 <!-- <a  href="/sign_up"><input type="submit" name="submit" value="sign up" id="submit" ></a>
-						<a  href="/log_in"><input type="submit" name="submit" value="sign in" id="submit"></a> -->
-					<% end %>
-				</div>
+				<% if !mobile_device? %>
+					<div id="signIn">
+						<% if current_user %>  
+							Logged in as <%= current_user.userName %>  
+							<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
+						<% else %>
+							<%= form_tag sessions_path do %>  
+							
+								<%= label_tag :userName %><br />  
+								<%= text_field_tag :userName , params[:userName ] %>  
+								  
+								<%= label_tag :password %><br />  
+								<%= password_field_tag :password %>  
+								  
+								<%= submit_tag "sign in", id: 'submit'%> 
+							<% end %>  
+							 <!-- <a  href="/sign_up"><input type="submit" name="submit" value="sign up" id="submit" ></a>
+							<a  href="/log_in"><input type="submit" name="submit" value="sign in" id="submit"></a> -->
+						<% end %>
+					</div>
 				
-				<div id="wordmark">
-					<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
-				</div>
+					<div id="wordmark">
+						<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
+					</div>
+				<% end %>
 			</div>
 		</div> <!-- end header -->
 		
@@ -44,13 +54,8 @@
 				<ul>
 					<li><a id="1" href="/">Home</a></li>
 					<li><a id="2" href="/events">Events</a></li>
-					<!--
-					<li><a id="3" href="/stats">Stuff</a></li>
-					<li><a id="4" href="/stats">Things</a></li>
-					<li><a id="6" href="/stats">Moar stuffs</a></li>
-					<li><a id="7" href="/stats">Moar things</a></li>
-					<li><a id="5" href="/stats">Self destruct</a></li>
-					-->
+					<li><a id="3" href="/jobs">Jobs</a></li>
+					<li><a id="4" href="/researches">Research</a></li>
 				</ul>
 			</div>
 			
@@ -58,20 +63,18 @@
 			 <% flash.each do |name, msg| %>  
     				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
  			 <% end %>  
-  			<%= yield %> 
+  			<%= yield %>
 			</div>
 			
-			<div id="castle">
-				<%= image_tag "welcome/footer_castle.png" %>
-			</div>
-			
-			<div id="castleBlock">
-				<br>
-			</div>
+			<% if !mobile_device? %>
+				<div id="castle">
+					<%= image_tag "welcome/footer_castle.png" %>
+				</div>
+			<% end %>
 		</div> <!-- end page -->
 		
 		<div id="footer">
-			footer
+			
 		</div> <!-- end footer -->
 	</body>
 </html>

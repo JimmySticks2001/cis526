@@ -1,0 +1,28 @@
+<% if !mobile_device? %>
+  <br>
+  <br>
+<% end %>
+
+
+<% @researches.each do |research| %>
+  <div class = "aProject">
+    <h2><%= research.title %></h2>
+    <br>
+    <%= research.content %>
+    <br>
+    <% if current_user.present? %>
+  		<% if current_user.faculty? or current_user.admin?  %>
+  		  <%= link_to 'Edit', edit_research_path(research) %> |
+  		  <%= link_to 'Destroy', research, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+	  <% end %>
+  </div>
+<% end %>
+
+<br>
+
+<% if current_user.present? %>
+  <% if current_user.faculty? or current_user.admin?  %>
+    <%= link_to 'New Research', new_research_path %>
+  <% end %>
+<% end %>

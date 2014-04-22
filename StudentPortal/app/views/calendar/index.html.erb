@@ -76,4 +76,6 @@
 </div>
 
 <br>
-<%= raw(event_calendar) %>
+<% if !mobile_device? %>
+	<%= raw(event_calendar) %>
+<% end %>

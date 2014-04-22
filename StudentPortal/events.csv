@@ -1,7 +1,7 @@
 id,name,start_at,end_at,sponsor,additionalInfo,food,swag,comp,important
-1,club meeting,"March 19, 2014 04:00 ","March 19, 2014 17:00 ",Robot Club,build robots!,true,false,false,true
-2,club meeting,"March 21, 2014 04:00 ","March 21, 2014 05:00 ",Robot Club,build robots!,true,true,false,false
-3,club meeting,"March 22, 2014 04:00 ","March 22, 2014 05:00 ",Robot Club,build robots!,true,false,false,false
-4,Programming Competition,"March 29, 2014 20:00 ","March 30, 2014 08:00 ",ACM,Program things all night and eat free foods. Opportunities to win swag! Compete with your fellow newbs,true,true,true,true
-5,Company pizza,"March 21, 2014 11:00 ","March 21, 2014 13:00 ",A company,Eat our pizza!,true,false,false,false
-6,Spring Break!,"March 19, 2014 08:00 ","March 21, 2014 20:00 ",School,GLHF,false,false,false,true
+1,club meeting,"May 19, 2014 04:00 ","May 19, 2014 17:00 ",Robot Club,build robots!,true,false,false,true
+2,club meeting,"May 21, 2014 04:00 ","May 21, 2014 05:00 ",Robot Club,build robots!,true,true,false,false
+3,club meeting,"May 22, 2014 04:00 ","May 22, 2014 05:00 ",Robot Club,build robots!,true,false,false,false
+4,Programming Competition,"May 29, 2014 20:00 ","May 30, 2014 08:00 ",ACM,Program things all night and eat free foods. Opportunities to win swag! Compete with your fellow newbs,true,true,true,true
+5,Company pizza,"May 21, 2014 11:00 ","May 21, 2014 13:00 ",A company,Eat our pizza!,true,false,false,false
+6,Spring Break!,"May 19, 2014 08:00 ","May 21, 2014 20:00 ",School,GLHF,false,false,false,true
