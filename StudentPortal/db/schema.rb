@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420160324) do
+ActiveRecord::Schema.define(version: 20140421160717) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clubs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "contact_info"
+    t.string   "club_page_link"
+    t.string   "sponsor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +45,17 @@ ActiveRecord::Schema.define(version: 20140420160324) do
     t.boolean  "swag",           default: false
     t.boolean  "comp",           default: false
     t.boolean  "important",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "faculties", force: true do |t|
+    t.string   "name"
+    t.string   "personal_page_link"
+    t.string   "email"
+    t.string   "office_location"
+    t.string   "phone_number"
+    t.text     "classes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

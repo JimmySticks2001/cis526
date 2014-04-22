@@ -22,9 +22,12 @@
         <td><%= club.contact_info %></td>
         <td><%= club.club_page_link %></td>
         <td><%= club.sponsor %></td>
-        <td><%= link_to 'Show', club %></td>
-        <td><%= link_to 'Edit', edit_club_path(club) %></td>
-        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.present? %>
+          <% if current_user.faculty? or current_user.admin?  %>
+            <td><%= link_to 'Edit', edit_club_path(club) %></td>
+            <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +35,8 @@
 
 <br>
 
-<%= link_to 'New Club', new_club_path %>
+<% if current_user.present? %>
+  <% if current_user.faculty? or current_user.admin?  %>
+    <%= link_to 'New Club', new_club_path %>
+  <% end %>
+<% end %>

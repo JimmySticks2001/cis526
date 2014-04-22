@@ -24,9 +24,13 @@
         <td><%= faculty.office_location %></td>
         <td><%= faculty.phone_number %></td>
         <td><%= faculty.classes %></td>
-        <td><%= link_to 'Show', faculty %></td>
-        <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
-        <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.present? %>
+          <% if current_user.faculty? or current_user.admin?  %>
+            <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
+            <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +38,8 @@
 
 <br>
 
-<%= link_to 'New Faculty', new_faculty_path %>
+<% if current_user.present? %>
+  <% if current_user.faculty? or current_user.admin?  %>
+    <%= link_to 'New Faculty', new_faculty_path %>
+  <% end %>
+<% end %>
