@@ -21,33 +21,33 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-	if current_user.present? && (current_user.admin? or current_user.faculty?)
-	  	@event = Event.find(params[:id])
-	  	@event.destroy
-	  	redirect_to events_path
-	end
+		if current_user.present? && (current_user.admin? or current_user.faculty?)
+			@event = Event.find(params[:id])
+			@event.destroy
+			redirect_to events_path
+		end
 	end
 
 	def create
-	if current_user.present? && (current_user.admin? or current_user.faculty?)
-	  	@event = Event.new(event_params)
-	  	if @event.save
-			redirect_to @event
-			else
-		  	render 'new'
+		if current_user.present? && (current_user.admin? or current_user.faculty?)
+			@event = Event.new(event_params)
+			if @event.save
+				redirect_to @event
+				else
+				render 'new'
+			end
 		end
-	end
 	end
 
 	def update
-	if current_user.present? && (current_user.admin? or current_user.faculty?)
-	  	@event = Event.find(params[:id])
-	  	if @event.update(event_params)
-			redirect_to @event
-			else
-		  	render 'edit'
+		if current_user.present? && (current_user.admin? or current_user.faculty?)
+			@event = Event.find(params[:id])
+			if @event.update(event_params)
+				redirect_to @event
+				else
+				render 'edit'
+			end
 		end
-	end
 	end
 
 	def import
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
 	
 	
 	private
-	  def event_params
+	def event_params
 		params.require(:event).permit(:name, :start_at, :end_at, :sponsor, :additionalInfo, :food, :swag, :comp, :important)
-	  end
+	end
 end

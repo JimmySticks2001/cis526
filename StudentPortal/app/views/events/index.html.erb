@@ -1,25 +1,28 @@
+<% if !mobile_device? %>
+  <br>
+  <br>
+<% end %>
+
+
+<%= form_tag events_path, :method => :get do %>
+  <p>
+	<%= text_field_tag :search, params[:search], :class=>"searchBox"  %>
+	<%= submit_tag "Search", :name => nil, :class => "button" %>
+  </p>
+<% end %>
 
 <% if !mobile_device? %>
-	<br/>
-	
-	<%= form_tag events_path, :method => :get do %>
-	  <p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :name => nil %>
-	  </p>
-	<% end %>
-	
 	<% if current_user.present? %>
 		<% if current_user.faculty? or current_user.admin?  %>
 			<%= form_tag import_events_path, multipart: true do %>
 	 			<%= file_field_tag :file %>
 	  			<%= submit_tag "Import" %>
 			<% end %>
-			<%= link_to 'New event', new_event_path %>
+			<p>
+				<%= link_to 'New single event', new_event_path, :class => "button" %>
+			</p>
 		<% end %>
 	<% end %>
-	<br/>
-	<br/>
 	<div class="events_table" >
 		<table>
 			<tr>
@@ -32,22 +35,21 @@
 				<td>Important</td>
 			</tr>
 			<% @events.each do |event| %>
-			<tr>
-				<td><strong><%= link_to event.name, event %></strong></td>
-				<td><%= event.start_at.to_formatted_s(:long) %></td>
-				<td><%= event.end_at.to_formatted_s(:long) %></td>
-				<td><%= event.food %></td>
-				<td><%= event.swag %></td>
-				<td><%= event.comp %></td>
-				<td><%= event.important %></td>
-				<% if current_user.present? %>
-					<% if current_user.faculty? or current_user.admin?  %>
-						<td><%= link_to 'Edit', edit_event_path(event) %></td>
-						<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+				<tr>
+					<td><strong><%= link_to event.name, event %></strong></td>
+					<td><%= event.start_at.to_formatted_s(:long) %></td>
+					<td><%= event.end_at.to_formatted_s(:long) %></td>
+					<td><%= event.food %></td>
+					<td><%= event.swag %></td>
+					<td><%= event.comp %></td>
+					<td><%= event.important %></td>
+					<% if current_user.present? %>
+						<% if current_user.faculty? or current_user.admin?  %>
+							<td><%= link_to 'Edit', edit_event_path(event) %></td>
+							<td><%= link_to 'Destroy', event_path(event), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+						<% end %>
 					<% end %>
-				<% end %>
-			
-			</tr>
+				</tr>
 			<% end %>
 		</table>
 	</div>

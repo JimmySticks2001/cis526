@@ -1,8 +1,14 @@
 <% if !mobile_device? %>
   <br>
   <br>
+  <br>
 <% end %>
 
+<% if current_user.present? %>
+  <% if current_user.faculty? or current_user.admin?  %>
+    <%= link_to 'New research project', new_research_path, :class=>"button"  %>
+  <% end %>
+<% end %>
 
 <% @researches.each do |research| %>
   <div class = "aProject">
@@ -12,8 +18,10 @@
     <br>
     <% if current_user.present? %>
   		<% if current_user.faculty? or current_user.admin?  %>
-  		  <%= link_to 'Edit', edit_research_path(research) %> |
-  		  <%= link_to 'Destroy', research, method: :delete, data: { confirm: 'Are you sure?' } %>
+  		  <p>
+            <%= link_to 'Edit', edit_research_path(research), :class=>"button"  %>
+            <%= link_to 'Remove', research, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>
+          </p>
       <% end %>
 	  <% end %>
   </div>
@@ -21,8 +29,3 @@
 
 <br>
 
-<% if current_user.present? %>
-  <% if current_user.faculty? or current_user.admin?  %>
-    <%= link_to 'New Research', new_research_path %>
-  <% end %>
-<% end %>

@@ -1,37 +1,43 @@
 <%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+	<% if @job.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
-      <ul>
-      <% @job.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+				<% @job.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.text_field :kind %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_area :desc %>
-  </div>
-  <div class="field">
-    <%= f.label :poster %><br>
-    <%= f.text_field :poster %>
-  </div>
-  <div class="field">
-    <%= f.label :host %><br>
-    <%= f.text_field :host %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<br>
+	<div class="field">
+	  Type of job (internship / full-time / part-time)
+	  <br>
+	  <%= f.text_field :kind, :size => "50" %>
+	</div>
+	<div class="field">
+	  Position title
+	  <br>
+	  <%= f.text_field :title, :size => "50" %>
+	</div>
+	<div class="field">
+	  Job description
+	  <br>
+	  <%= f.text_area :desc, :cols => "75", :rows => "5" %>
+	</div>
+	<div class="field">
+	  Company
+	  <br>
+	  <%= f.text_field :poster, :size => "50" %>
+	</div>
+	<div class="field">
+	  Department
+	  <br>
+	  <%= f.text_field :host, :size => "50" %>
+	</div>
+	<div class="actions">
+	  <%= f.submit :class=>"button" %>
+	</div>
 <% end %>

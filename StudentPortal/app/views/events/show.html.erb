@@ -1,7 +1,7 @@
 <% if !mobile_device? %>
 	<h2>Event info</h2>
 
-	<div id="eventBorder">
+	<div class = "aProject">
 		<h1><%= @event.name %></h1>
 		Sponsored by: <%= @event.sponsor %>
 
@@ -49,23 +49,16 @@
 				</a>
 			<% end %>
 			
-			<% if @event.important == true %>
-				this is important
-			<% else %>
-				not important
-			<% end %>
-			
-			
 		</p>
-	</div>
-
-	<%= link_to 'Back to Events', events_path %> 
-
-	<% if current_user.present? %>
-		<% if current_user.faculty? or current_user.admin? %>
-			<td><%= link_to 'Edit', edit_event_path(@event) %></td>
+		
+		<% if current_user.present? %>
+			<% if current_user.faculty? or current_user.admin? %>
+				<p>
+					<td><%= link_to 'Edit', edit_event_path(@event),:class => "button" %></td>
+				</p>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 <% else %>
 	<div id="mobile_events_show">
 		<h2><%= @event.name %></h2>

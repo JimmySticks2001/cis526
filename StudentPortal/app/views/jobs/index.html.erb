@@ -5,13 +5,21 @@
 
 <%= form_tag jobs_path, :method => :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :search, params[:search], :class=>"searchBox" %>
+	  <%= submit_tag "Search", :name => nil, :class=>"button" %>
   </p>
 <% end %>
 
+<% if !mobile_device? %>
+  <% if current_user.present? %>
+    <% if current_user.faculty? or current_user.admin?  %>
+      <%= link_to 'New job posting', new_job_path, :class=>"button" %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <% @jobs.each do |job| %>
-  <div class = "aJob">
+  <div class = "aProject">
     <% if mobile_device? %>
       <h2><%= link_to job.title + " at " + job.poster, job %></h2>
     <% else %>
@@ -26,8 +34,10 @@
       <br>
       <% if current_user.present? %>
         <% if current_user.faculty? or current_user.admin?  %>
-          <%= link_to 'Edit', edit_job_path(job) %> |
-          <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <p>
+            <%= link_to 'Edit', edit_job_path(job), :class=>"button"  %>
+            <%= link_to 'Remove', job, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>
+          </p>
         <% end %>
       <% end %>
 
@@ -37,11 +47,5 @@
 
 <br>
 
-<% if !mobile_device? %>
-  <% if current_user.present? %>
-    <% if current_user.faculty? or current_user.admin?  %>
-      <%= link_to 'New Job', new_job_path %>
-    <% end %>
-  <% end %>
-<% end %>
+
 

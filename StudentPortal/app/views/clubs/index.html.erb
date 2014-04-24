@@ -1,42 +1,30 @@
-<h1>Listing clubs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Contact info</th>
-      <th>Club page link</th>
-      <th>Sponsor</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clubs.each do |club| %>
-      <tr>
-        <td><%= club.name %></td>
-        <td><%= club.description %></td>
-        <td><%= club.contact_info %></td>
-        <td><%= club.club_page_link %></td>
-        <td><%= club.sponsor %></td>
-        <% if current_user.present? %>
-          <% if current_user.faculty? or current_user.admin?  %>
-            <td><%= link_to 'Edit', edit_club_path(club) %></td>
-            <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% if !mobile_device? %>
+  <br>
+  <br>
+  <br>
+<% end %>
 
 <% if current_user.present? %>
   <% if current_user.faculty? or current_user.admin?  %>
-    <%= link_to 'New Club', new_club_path %>
+    <%= link_to 'New Club', new_club_path, :class => "button" %>
   <% end %>
+<% end %>
+
+<% @clubs.each do |club| %>
+  <div class = "aProject">
+    <h2><%= link_to club.name, club.club_page_link %></h2>
+    <br>
+    <%= club.description %>
+    <br>
+    <%= club.contact_info %>
+    <br>
+    <% if current_user.present? %>
+		<% if current_user.faculty? or current_user.admin?  %>
+		  <p>
+			<%= link_to 'Edit', edit_club_path(club), :class => "button" %>
+			<%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
+		  </p>
+        <% end %>
+    <% end %>
+  </div>
 <% end %>

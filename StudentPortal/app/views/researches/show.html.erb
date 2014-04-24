@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h2>Research project info</h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @research.title %>
-</p>
+<div class = "aProject">
+	<p>
+		<strong>Title:</strong>
+		<%= @research.title %>
+	</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @research.content %>
-</p>
+	<p>
+		<strong>Content:</strong>
+		<%= @research.content %>
+	</p>
 
-<%= link_to 'Edit', edit_research_path(@research) %> |
-<%= link_to 'Back', researches_path %>
+	
+	<% if current_user.present? %>
+		<% if current_user.faculty? or current_user.admin?  %>
+			<p>
+				<%= link_to 'Edit', edit_research_path(@research), :class => "button" %>
+				<%= link_to 'Remove', @research, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>
+			</p>
+		<% end %>
+	<% end %>
+	
+</div>
