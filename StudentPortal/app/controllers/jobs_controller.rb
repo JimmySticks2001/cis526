@@ -1,15 +1,13 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-
-  
   
   # GET /jobs
   # GET /jobs.json
   def index
-	@search = Job.search do
-		fulltext params[:search]
-	end
-    @jobs = @search.results
+  	@search = Job.search do
+  		fulltext params[:search]
+  	end
+      @jobs = @search.results
   end
 
   # GET /jobs/1

@@ -1,34 +1,45 @@
-<p id="notice"><%= notice %></p>
+<h2>Faculty info</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @faculty.name %>
-</p>
+<div class = "aProject">
 
-<p>
-  <strong>Personal page link:</strong>
-  <%= @faculty.personal_page_link %>
-</p>
+  <p>
+    <h3><%= @faculty.name %></h3>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @faculty.email %>
-</p>
+  <p>
+    <%= image_tag "cis_default_photo.png" %>
+  </p>
 
-<p>
-  <strong>Office location:</strong>
-  <%= @faculty.office_location %>
-</p>
+  <p>
+    <%= link_to @faculty.personal_page_link, @faculty.personal_page_link %>
+  </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @faculty.phone_number %>
-</p>
+  <p>
+    <strong>Contact info:</strong>
+    <br>
+    <%= @faculty.phone_number %>
+    <br>
+    <%= @faculty.email %>
+  </p>
 
-<p>
-  <strong>Classes:</strong>
-  <%= @faculty.classes %>
-</p>
+  <p>
+    <strong>Office location:</strong>
+    <%= @faculty.office_location %>
+  </p>
 
-<%= link_to 'Edit', edit_faculty_path(@faculty) %> |
-<%= link_to 'Back', faculties_path %>
+  <p>
+    <strong>Classes:</strong>
+    <%= @faculty.classes %>
+  </p>
+
+  <% if current_user.present? %>
+    <% if current_user.faculty? or current_user.admin?  %>
+      <p>
+        <%= link_to 'Edit', edit_faculty_path(@faculty), :class => "button" %>
+        <%= link_to 'Remove', @faculty, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>
+      </p>
+    <% end %>
+  <% end %>
+
+  
+</div>

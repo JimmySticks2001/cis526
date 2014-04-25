@@ -13,29 +13,33 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => "50" %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.text_field :position, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :personal_page_link %><br>
-    <%= f.text_field :personal_page_link %>
+    <%= f.text_field :personal_page_link, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :office_location %><br>
-    <%= f.text_field :office_location %>
+    <%= f.text_field :office_location, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :classes %><br>
-    <%= f.text_area :classes %>
+    <%= f.text_area :classes, :cols => "39", :rows => "5" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button" %>
   </div>
 <% end %>

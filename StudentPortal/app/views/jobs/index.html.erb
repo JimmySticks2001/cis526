@@ -23,14 +23,7 @@
     <% if mobile_device? %>
       <h2><%= link_to job.title + " at " + job.poster, job %></h2>
     <% else %>
-      <h2><%= job.title %></h2>
-      <br>
-      Type: <%= job.kind %>
-      <br>
-      From: <%= job.host %> @ <%= job.poster %>
-      <br>
-      <br>
-      <%= job.desc %>
+      <h2><%= link_to job.title + " " + job.kind + " at " + job.poster, job %></h2>
       <br>
       <% if current_user.present? %>
         <% if current_user.faculty? or current_user.admin?  %>
