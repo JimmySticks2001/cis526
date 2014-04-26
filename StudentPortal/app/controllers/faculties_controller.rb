@@ -54,6 +54,8 @@ class FacultiesController < ApplicationController
   # DELETE /faculties/1
   # DELETE /faculties/1.json
   def destroy
+    @faculty.avatar = nil
+    @faculty.save
     @faculty.destroy
     respond_to do |format|
       format.html { redirect_to faculties_url }
@@ -69,6 +71,6 @@ class FacultiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def faculty_params
-      params.require(:faculty).permit(:name, :personal_page_link, :email, :office_location, :phone_number, :classes, :position)
+      params.require(:faculty).permit(:name, :personal_page_link, :email, :office_location, :phone_number, :classes, :position, :avatar)
     end
 end

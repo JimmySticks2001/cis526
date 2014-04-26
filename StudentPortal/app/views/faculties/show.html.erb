@@ -7,6 +7,7 @@
   </p>
 
   <p>
+    <%= image_tag @faculty.avatar.url(:medium) %>
     <%= image_tag "cis_default_photo.png" %>
   </p>
 
@@ -31,9 +32,14 @@
     <strong>Classes:</strong>
     <%= @faculty.classes %>
   </p>
+ 
 
   <% if current_user.present? %>
     <% if current_user.faculty? or current_user.admin?  %>
+      <p>
+       <strong>Avatar:</strong>
+       <%= @faculty.avatar %>
+      </p>
       <p>
         <%= link_to 'Edit', edit_faculty_path(@faculty), :class => "button" %>
         <%= link_to 'Remove', @faculty, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>

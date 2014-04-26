@@ -56,3 +56,6 @@ gem 'event-calendar', :require => 'event_calendar'
 
 # Search/Filter
 gem 'sunspot_rails'
+
+#paperclip for image
+gem "paperclip", "~> 4.1"
