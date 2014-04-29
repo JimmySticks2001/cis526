@@ -212,6 +212,111 @@
 }
 
 
+#social_links
+{
+	float: right;
+	margin: 2px 10px 5px 5px;
+	padding-top: 25px;
+	overflow: hidden;
+		
+	li
+	{
+		display: block;
+		float: left;
+		
+		a
+		{
+			box-shadow: 3px 3px 3px #222222;
+			margin: 0 10px 10px 0;
+		}
+	}
+}
+
+#ksu_facebook_icon
+{
+	background-image: url(http://cis.ksu.edu/sites/all/themes/ksu2011/images/social-media.png);
+	background-position-x: -58px;
+	background-position-y: 0px;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: scroll;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: transparent;
+	display: block;
+	height: 29px;
+	width: 29px;
+}
+
+#ksu_twitter_icon
+{
+	background-image: url(http://cis.ksu.edu/sites/all/themes/ksu2011/images/social-media.png);
+	background-position-x: -87px;
+	background-position-y: 0px;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: scroll;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: transparent;
+	display: block;
+	height: 29px;
+	width: 29px;
+}
+
+#ksu_youtube_icon
+{
+	background-image: url(http://cis.ksu.edu/sites/all/themes/ksu2011/images/social-media.png);
+	background-position-x: -29px;
+	background-position-y: 0px;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: scroll;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: transparent;
+	display: block;
+	height: 29px;
+	width: 29px;
+}
+
+#ksu_foursq_icon
+{
+	background-image: url(http://cis.ksu.edu/sites/all/themes/ksu2011/images/social-media.png);
+	background-position-x: -174px;
+	background-position-y: 0px;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: scroll;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: transparent;
+	display: block;
+	height: 29px;
+	width: 29px;
+}
+
+#ksu_gplus_icon
+{
+	background-image: url(http://cis.ksu.edu/sites/all/themes/ksu2011/images/social-media.png);
+	background-position-x: -145px;
+	background-position-y: 0px;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: scroll;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: transparent;
+	display: block;
+	height: 29px;
+	width: 29px;
+}
+
 
 
 /* ---------- home page sytles go here ---------- */
