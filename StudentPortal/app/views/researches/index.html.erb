@@ -12,10 +12,15 @@
 
 <% @researches.each do |research| %>
   <div class = "aProject">
-    <h2><%= research.title %></h2>
-    <br>
-    <%= research.content %>
-    <br>
+	<% if !mobile_device? %>
+		<h2><%= research.title %></h2>
+		<br>
+		<%= research.content %>
+		<br>
+	<% else %>
+		<h2><%= link_to research.title, research %></h2>
+	<% end %>
+	
     <% if current_user.present? %>
   		<% if current_user.faculty? or current_user.admin?  %>
   		  <p>
@@ -26,6 +31,4 @@
 	  <% end %>
   </div>
 <% end %>
-
 <br>
-

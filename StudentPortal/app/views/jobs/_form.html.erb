@@ -12,31 +12,65 @@
 	<% end %>
 
 	<br>
-	<div class="field">
-	  Type of job (internship / full-time / part-time)
-	  <br>
-	  <%= f.text_field :kind, :size => "50" %>
-	</div>
-	<div class="field">
-	  Position title
-	  <br>
-	  <%= f.text_field :title, :size => "50" %>
-	</div>
-	<div class="field">
-	  Job description
-	  <br>
-	  <%= f.text_area :desc, :cols => "75", :rows => "10" %>
-	</div>
-	<div class="field">
-	  Company
-	  <br>
-	  <%= f.text_field :poster, :size => "50" %>
-	</div>
-	<div class="field">
-	  Department
-	  <br>
-	  <%= f.text_field :host, :size => "50" %>
-	</div>
+	<% if !mobile_device? %>
+		<div class="field">
+		  Type of job (internship / full-time / part-time)
+		  <br>
+		  <%= f.text_field :kind, :size => "50" %>
+		</div>
+		<div class="field">
+		  Position title
+		  <br>
+		  <%= f.text_field :title, :size => "50" %>
+		</div>
+		<div class="field">
+		  Job description
+		  <br>
+		  <%= f.text_area :desc, :cols => "75", :rows => "10" %>
+		</div>
+		<div class="field">
+		  Company
+		  <br>
+		  <%= f.text_field :poster, :size => "50" %>
+		</div>
+		<div class="field">
+		  Department
+		  <br>
+		  <%= f.text_field :host, :size => "50" %>
+		</div>
+		
+		
+		
+	<% else %>
+		<div class="field">
+		  Type of job (internship / full-time / part-time)
+		  <br>
+		  <%= f.text_field :kind, :size => "50", :class => "form_text" %>
+		</div>
+		<div class="field">
+		  Position title
+		  <br>
+		  <%= f.text_field :title, :size => "50", :class => "form_text" %>
+		</div>
+		<div class="field">
+		  Job description
+		  <br>
+		  <%= f.text_area :desc, :cols => "75", :rows => "10", :class => "form_text" %>
+		</div>
+		<div class="field">
+		  Company
+		  <br>
+		  <%= f.text_field :poster, :size => "50", :class => "form_text" %>
+		</div>
+		<div class="field">
+		  Department
+		  <br>
+		  <%= f.text_field :host, :size => "50", :class => "form_text" %>
+		</div>
+	
+	
+	<% end %>
+	
 	<div class="actions">
 	  <%= f.submit :class=>"button" %>
 	</div>

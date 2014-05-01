@@ -5,6 +5,7 @@
         
 		<% if mobile_device? %>
 			<%= stylesheet_link_tag "mobile/mobile" %>
+			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 		<% else %>
 			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>

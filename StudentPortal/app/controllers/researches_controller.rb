@@ -4,7 +4,7 @@ class ResearchesController < ApplicationController
   # GET /researches
   # GET /researches.json
   def index
-    @researches = Research.all
+    @researches = Research.order('created_at DESC').all
   end
 
   # GET /researches/1

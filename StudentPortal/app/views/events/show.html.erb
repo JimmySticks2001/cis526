@@ -68,5 +68,13 @@
 		<p>
 			<%= @event.additionalInfo %>
 		</p>
+		
+		<% if current_user.present? %>
+			<% if current_user.faculty? or current_user.admin? %>
+				<p>
+					<%= link_to 'Edit', edit_event_path(@event),:class => "button" %>
+				</p>
+			<% end %>
+		<% end %>
 	</div>
 <% end %>

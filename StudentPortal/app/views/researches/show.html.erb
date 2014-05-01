@@ -1,16 +1,9 @@
-<h2>Research project info</h2>
+<h2><%= @research.title %></h2>
 
 <div class = "aProject">
 	<p>
-		<strong>Title:</strong>
-		<%= @research.title %>
-	</p>
-
-	<p>
-		<strong>Content:</strong>
 		<%= @research.content %>
 	</p>
-
 	
 	<% if current_user.present? %>
 		<% if current_user.faculty? or current_user.admin?  %>
@@ -20,5 +13,4 @@
 			</p>
 		<% end %>
 	<% end %>
-	
 </div>

@@ -1,10 +1,7 @@
 <h2>Faculty info</h2>
 
 <div class = "aProject">
-
-  <p>
-    <h3><%= @faculty.name %></h3>
-  </p>
+  <h3><%= @faculty.name %></h3>
 
   <p>
     <% if !(@faculty.avatar.url == "/images/original/missing.png") %>
@@ -39,10 +36,6 @@
 
   <% if current_user.present? %>
     <% if current_user.faculty? or current_user.admin?  %>
-      <p>
-       <strong>Avatar:</strong>
-       <%= @faculty.avatar %>
-      </p>
       <p>
         <%= link_to 'Edit', edit_faculty_path(@faculty), :class => "button" %>
         <%= link_to 'Remove', @faculty, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button"  %>

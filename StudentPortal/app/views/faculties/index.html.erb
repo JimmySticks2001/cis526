@@ -3,15 +3,11 @@
   <br>
 <% end %>
 
-
-<% if !mobile_device? %>
-  <% if current_user.present? %>
-    <% if current_user.faculty? or current_user.admin?  %>
-      <%= link_to 'New faculty member', new_faculty_path, :class=>"button" %>
-    <% end %>
-  <% end %>
+<% if current_user.present? %>
+	<% if current_user.faculty? or current_user.admin?  %>
+		<%= link_to 'New faculty member', new_faculty_path, :class=>"button" %>
+	<% end %>
 <% end %>
-
 
 
 <% @faculties.each do |faculty| %>
