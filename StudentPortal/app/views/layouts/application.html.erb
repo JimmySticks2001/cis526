@@ -20,7 +20,6 @@
 	<body>
 		<div id="header">
 			<div id="clickables">
-
 				<% if !mobile_device? %>
 					<div id="signIn">
 						<% if current_user %>  
@@ -58,6 +57,12 @@
 					<li><a id="6" href="/faculties">Faculty</a></li>
 					<% if !mobile_device? %>
 						<li><a id="7" href="https://schedule.cis.ksu.edu/Web">Advising</a></li>
+					<% else %>
+						<% if current_user %> 
+							<li><a id="7" href="/log_out">Log out</a></li>
+						<% else %>
+							<li><a id="7" href="/log_in">Log in</a></li>
+						<% end %>
 					<% end %>
 				</ul>
 			</div>

@@ -13,27 +13,21 @@
 <% end %>
 
 
-<div class = "aProject">
 
-  <table>
-    <tbody>
-      <% @faculties.each do |faculty| %>
-        <tr>
-          <td><%= faculty.name %></td>
-          <td><%= faculty.personal_page_link %></td>
-          <td><%= faculty.email %></td>
-          <td><%= faculty.office_location %></td>
-          <td><%= faculty.phone_number %></td>
-          <td><%= faculty.classes %></td>
-          <% if current_user.present? %>
-            <% if current_user.faculty? or current_user.admin?  %>
-              <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
-              <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          <% end %>
-        </tr>
+<% @faculties.each do |faculty| %>
+  <div class = "aProject">
+    <%= faculty.name %></td>
+    <%= faculty.personal_page_link %></td>
+    <%= faculty.email %></td>
+    <%= faculty.office_location %></td>
+    <%= faculty.phone_number %></td>
+    <%= faculty.classes %></td>
+    <% if current_user.present? %>
+      <% if current_user.faculty? or current_user.admin?  %>
+        <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
+        <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
-    </tbody>
-  </table>
-  <br>
-</div>
+    <% end %>
+  </div>
+<% end %>
+<br>

@@ -54,6 +54,15 @@
 		</table>
 	</div>
 <% else %>
+	
+	<% if current_user.present? %>
+		<% if current_user.faculty? or current_user.admin?  %>
+			<p>
+				<%= link_to 'New single event', new_event_path, :class => "button" %>
+			</p>
+		<% end %>
+	<% end %>
+
 	<div id="mobile_events_list">
 		<% @events = Event.all( :order => "start_at ASC") %>
 
