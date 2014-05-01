@@ -7,8 +7,11 @@
   </p>
 
   <p>
+    <% if !(@faculty.avatar.url == "/images/original/missing.png") %>
     <%= image_tag @faculty.avatar.url(:medium) %>
+    <% else %>
     <%= image_tag "cis_default_photo.png" %>
+    <% end %>
   </p>
 
   <p>
