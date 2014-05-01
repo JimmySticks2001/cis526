@@ -22,7 +22,7 @@
 			<div id="clickables">
 				<% if !mobile_device? %>
 					<div id="signIn">
-						<% if current_user %>  
+						<% if !@current_user.nil? and current_user %>  
 							Logged in as <%= current_user.userName %>  
 							<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
 						<% else %>
