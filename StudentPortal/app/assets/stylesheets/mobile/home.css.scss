@@ -19,6 +19,15 @@ a
 }
 
 
+#flash_alert
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: white;
+	font-weight: bold;
+	background: #ff0000;
+}
+
 
 #nav
 {
@@ -46,7 +55,6 @@ a
 	font-weight:bold;
 	text-decoration:none;
 }
-
 
 
 .button
@@ -227,6 +235,7 @@ a
 #faculty_ul
 {
 	list-style-type: none;
+	padding-left: 15px;
 }
 
 

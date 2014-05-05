@@ -16,9 +16,11 @@ class SessionsController < ApplicationController
     if user  
       session[:user_id] = user.id  
       redirect_to root_url 
+    elsif mobile_device?
+      redirect_to "/log_in", alert: "Invalid usename or password"
     else
       redirect_to root_url, alert: "Invalid usename or password"
-    end  
+    end
   end 
  
   def destroy  

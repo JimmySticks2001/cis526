@@ -20,10 +20,11 @@
 	<body>
 		<div id="header">
 			<div id="clickables">
+				<% flash.each do |name, msg| %>  
+    				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
+ 			 	<% end %> 
+ 			 	 
 				<% if !mobile_device? %>
-					<% flash.each do |name, msg| %>  
-    					<%= content_tag :div, msg, :id => "flash_#{name}" %>  
- 			 		<% end %>  
 					<div id="signIn">
 						<% if current_user %>
 							Logged in as <%= current_user.userName %>  
