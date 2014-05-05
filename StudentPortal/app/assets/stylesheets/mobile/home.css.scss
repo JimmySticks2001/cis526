@@ -1,6 +1,21 @@
 $div_background_color: #eeede8;
 $ksu_purple: #512888;
 
+html, body
+{
+	height: 100%;
+}
+
+#wrap
+{
+	min-height: 100%;
+}
+
+#page
+{
+	padding-bottom: 10px;
+}
+
 
 body 
 {
@@ -115,6 +130,10 @@ a
 
 #footer
 {
+	position: relative;
+	margin-top: -50px; /* negative value of footer height */
+	clear: both;
+
 	height: 50px;
 	margin-left: auto;
 	margin-right: auto;
