@@ -224,10 +224,26 @@ a
 
 
 
+#faculty_ul
+{
+	list-style-type: none;
+}
 
 
-
-
+.mobile_faculty_wrapper
+{
+	width: 90%;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	padding: 10px 10px 10px 10px;
+	background: rgb(238,237,232);
+	color: black;
+	border: 0px solid;
+    border-radius: 10px;
+	text-decoration: none;
+}
 
 
 
