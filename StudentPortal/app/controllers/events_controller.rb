@@ -23,6 +23,8 @@ class EventsController < ApplicationController
 	def destroy
 		if current_user.present? && (current_user.admin? or current_user.faculty?)
 			@event = Event.find(params[:id])
+			@event.avatar = nil
+    			@event.save
 			@event.destroy
 			redirect_to events_path
 		end
@@ -58,6 +60,6 @@ class EventsController < ApplicationController
 	
 	private
 	def event_params
-		params.require(:event).permit(:name, :start_at, :end_at, :sponsor, :additionalInfo, :food, :swag, :comp, :important)
+		params.require(:event).permit(:name, :start_at, :end_at, :sponsor, :additionalInfo, :food, :swag, :comp, :important, :avatar)
 	end
 end

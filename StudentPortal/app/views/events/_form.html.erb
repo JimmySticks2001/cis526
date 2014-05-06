@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, :html => { :multipart => true } do |f| %>
 	<% if @event.errors.any? %>
 		<div id="error_explanation">
 			<h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -11,23 +11,56 @@
 		</div>
 	<% end %>
 
-	<br>
-	Title <%= f.text_field :name, :size => "50" %>
-	<br>
-	Sponsor <%= f.text_field :sponsor, :size => "45" %>
-	<br>
-	Start Date <%= datetime_select :event, :start_at , :ampm => true, :minute_step => 15 %>
-	<br>
-	End Date <%= datetime_select :event, :end_at , :ampm => true, :minute_step => 15 %>
-	<br>
-	Additional Information
-	<br>
-	<%= f.text_area :additionalInfo, :cols => "75", :rows => "5"  %>
-	<br>
-	food?<%= f.check_box :food %>
-	swag?<%= f.check_box :swag %> 
-	competition?<%= f.check_box :comp %>
-	important?<%= f.check_box :important %>
+	<% if !mobile_device? %>
+		<br>
+		Title <%= f.text_field :name, :size => "50" %>
+		<br>
+		Sponsor <%= f.text_field :sponsor, :size => "45" %>
+		<br>
+		Start Date <%= datetime_select :event, :start_at , :ampm => true, :minute_step => 15 %>
+		<br>
+		End Date <%= datetime_select :event, :end_at , :ampm => true, :minute_step => 15 %>
+		<br>
+		Additional Information
+		<br>
+		<%= f.text_area :additionalInfo, :cols => "75", :rows => "5"  %>
+		<br>
+		food?<%= f.check_box :food %>
+		swag?<%= f.check_box :swag %> 
+		competition?<%= f.check_box :comp %>
+		important?<%= f.check_box :important %>		
+		<div>
+    		<%= f.label :avatar %><br>
+    		<%= f.file_field :avatar %>
+  		</div>
+	
+	<% else %>
+		<br>
+		Title<br>
+		<%= f.text_field :name, :size => "50", :class => "form_text" %>
+		<br>
+		Sponsor<br>
+		<%= f.text_field :sponsor, :size => "45", :class => "form_text" %>
+		<br>
+		Start Date<br>
+		<%= datetime_select :event, :start_at , :ampm => true, :minute_step => 15 %>
+		<br>
+		End Date<br>
+		<%= datetime_select :event, :end_at , :ampm => true, :minute_step => 15 %>
+		<br>
+		Additional Information
+		<br>
+		<%= f.text_area :additionalInfo, :cols => "75", :rows => "5", :class => "form_text"  %>
+		<br>
+		food?<%= f.check_box :food %>
+		swag?<%= f.check_box :swag %> 
+		competition?<%= f.check_box :comp %>
+		important?<%= f.check_box :important %>
+		<div>
+    		<%= f.label :avatar %><br>
+    		<%= f.file_field :avatar %>
+  		</div>
+		<%end%>
 
 	<p>
 		<%= f.submit :class => "button" %>

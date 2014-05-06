@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501154948) do
+ActiveRecord::Schema.define(version: 20140501170357) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -41,12 +41,16 @@ ActiveRecord::Schema.define(version: 20140501154948) do
     t.datetime "end_at"
     t.string   "sponsor"
     t.text     "additionalInfo"
-    t.boolean  "food",           default: false
-    t.boolean  "swag",           default: false
-    t.boolean  "comp",           default: false
-    t.boolean  "important",      default: false
+    t.boolean  "food",                default: false
+    t.boolean  "swag",                default: false
+    t.boolean  "comp",                default: false
+    t.boolean  "important",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "faculties", force: true do |t|

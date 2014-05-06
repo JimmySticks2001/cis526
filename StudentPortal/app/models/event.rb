@@ -1,4 +1,8 @@
 class Event < ActiveRecord::Base
+
+	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/  
+
 	searchable do
 		text :additionalInfo, :boost => 3
 		text :name, :boost => 5
@@ -25,7 +29,9 @@ class Event < ActiveRecord::Base
   	format: { with: /.*[a-zA-Z].*/, 
   	message: "minimum 3 characters, max 56, not all whitespace, and must include letters" }
   
-  
+ 
+
+
 	def color
    		if self.important == true 
       		return "#7137bd" 
