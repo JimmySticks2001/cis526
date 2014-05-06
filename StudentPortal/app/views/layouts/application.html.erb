@@ -77,7 +77,6 @@
 	  				<%= yield %>
 				</div>
 				
-				
 			</div> <!-- end page -->
 		</div>
 
@@ -87,8 +86,12 @@
 					<%= image_tag "welcome/footer_castle.png" %>
 				</div>
 			<% end %>
-
-			<ul id = "social_links">
+			
+			<% if !mobile_device? %>
+				<ul id = "social_links">
+			<% else %>
+				<ul id = "mobile_social_links">
+			<% end %>
 				<li>
 					<a id = "ksu_facebook_icon" href = "http://facebook.com/KState" title = "Facebook"></a>
 				</li>
@@ -106,7 +109,6 @@
 				</li>
 			</ul>
 		</div> <!-- end footer -->
-
 
 	</body>
 </html>
