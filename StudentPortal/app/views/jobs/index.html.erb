@@ -10,12 +10,10 @@
   </p>
 <% end %>
 
-<% if !mobile_device? %>
-  <% if current_user.present? %>
-    <% if current_user.faculty? or current_user.admin?  %>
-      <%= link_to 'New job posting', new_job_path, :class=>"button" %>
-    <% end %>
-  <% end %>
+<% if current_user.present? %>
+	<% if current_user.faculty? or current_user.admin?  %>
+	  <%= link_to 'New job posting', new_job_path, :class=>"button" %>
+	<% end %>
 <% end %>
 
 <% @jobs.each do |job| %>
@@ -33,12 +31,8 @@
           </p>
         <% end %>
       <% end %>
-
     <% end %>
   </div>
 <% end %>
 
 <br>
-
-
-

@@ -5,6 +5,7 @@
         
 		<% if mobile_device? %>
 			<%= stylesheet_link_tag "mobile/mobile" %>
+			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 		<% else %>
 			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -12,72 +13,81 @@
 			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 			<%= javascript_include_tag "event_calendar" %>
 		<% end %>
-
 		
 	  	<%= csrf_meta_tags %>
 	</head>
 	
 	<body>
-		<div id="header">
-			<div id="clickables">
 
-				<% if !mobile_device? %>
-					<div id="signIn">
-						<% if !@current_user.nil? and current_user %>  
-							Logged in as <%= current_user.userName %>  
-							<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
+		<div id="wrap">
+			<div id="header">
+				<div id="clickables">
+					<% flash.each do |name, msg| %>  
+	    				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
+	 			 	<% end %> 
+	 			 	 
+					<% if !mobile_device? %>
+						<div id="signIn">
+							<% if current_user %>
+								Logged in as <%= current_user.userName %>  
+								<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
+							<% else %>
+								<%= form_tag sessions_path do %>  
+								
+									<%= label_tag :userName %><br />  
+									<%= text_field_tag :userName , params[:userName ] %>  
+									  
+									<%= label_tag :password %><br />  
+									<%= password_field_tag :password %>  
+									  
+									<%= submit_tag "sign in", id: 'submit'%> 
+								<% end %>
+							<% end %>
+						</div>
+					
+						<div id="wordmark">
+							<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
+						</div>
+					<% end %>
+				</div>
+			</div> <!-- end header -->
+
+			<div id="page">
+				<div id="nav">
+					<ul>
+						<li><a id="1" href="/">Home</a></li>
+						<li><a id="2" href="/events">Events</a></li>
+						<li><a id="3" href="/jobs">Jobs</a></li>
+						<li><a id="4" href="/researches">Research</a></li>
+						<li><a id="5" href="/clubs">Clubs</a></li>
+						<li><a id="6" href="/faculties">Faculty</a></li>
+						<% if !mobile_device? %>
+							<li><a id="7" href="https://schedule.cis.ksu.edu/Web">Advising</a></li>
 						<% else %>
-							<%= form_tag sessions_path do %>  
-							
-								<%= label_tag :userName %><br />  
-								<%= text_field_tag :userName , params[:userName ] %>  
-								  
-								<%= label_tag :password %><br />  
-								<%= password_field_tag :password %>  
-								  
-								<%= submit_tag "sign in", id: 'submit'%> 
+							<% if current_user %> 
+								<li><a id="7" href="/log_out">Log out</a></li>
+							<% else %>
+								<li><a id="7" href="/log_in">Log in</a></li>
 							<% end %>
 						<% end %>
-					</div>
+					</ul>
+				</div>
 				
-					<div id="wordmark">
-						<a href="http://www.ksu.edu/"><%= image_tag "welcome/wordmark.png" %></a>
-					</div>
-				<% end %>
-			</div>
-		</div> <!-- end header -->
-		
-		<div id="page">
-			<div id="nav">
-				<ul>
-					<li><a id="1" href="/">Home</a></li>
-					<li><a id="2" href="/events">Events</a></li>
-					<li><a id="3" href="/jobs">Jobs</a></li>
-					<li><a id="4" href="/researches">Research</a></li>
-					<li><a id="5" href="/clubs">Clubs</a></li>
-					<li><a id="6" href="/faculties">Faculty</a></li>
-					<% if !mobile_device? %>
-						<li><a id="7" href="https://schedule.cis.ksu.edu/Web">Advising</a></li>
-					<% end %>
-				</ul>
-			</div>
-			
-			<div id="content">
-			 <% flash.each do |name, msg| %>  
-    				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
- 			 <% end %>  
-  			<%= yield %>
-			</div>
-			
+				<div id="content">
+	  				<%= yield %>
+				</div>
+				
+				
+			</div> <!-- end page -->
+		</div>
+
+		<div id="footer">
 			<% if !mobile_device? %>
 				<div id="castle">
 					<%= image_tag "welcome/footer_castle.png" %>
 				</div>
 			<% end %>
-		</div> <!-- end page -->
-		
-		<div id="footer">
-			
+
 			<ul id = "social_links">
 				<li>
 					<a id = "ksu_facebook_icon" href = "http://facebook.com/KState" title = "Facebook"></a>
@@ -94,9 +104,9 @@
 				<li>
 					<a id = "ksu_gplus_icon" href = "https://plus.google.com/u/0/112281507388935453137/posts" title = "Google+"></a>
 				</li>
-				
 			</ul>
-			
 		</div> <!-- end footer -->
+
+
 	</body>
 </html>

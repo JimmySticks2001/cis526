@@ -3,37 +3,57 @@
   <br>
 <% end %>
 
-
-<% if !mobile_device? %>
-  <% if current_user.present? %>
-    <% if current_user.faculty? or current_user.admin?  %>
-      <%= link_to 'New faculty member', new_faculty_path, :class=>"button" %>
-    <% end %>
-  <% end %>
+<% if current_user.present? %>
+	<% if current_user.faculty? or current_user.admin?  %>
+		<%= link_to 'New faculty member', new_faculty_path, :class=>"button" %>
+	<% end %>
 <% end %>
 
 
-<div class = "aProject">
+  <ul id = "faculty_ul">
+    <% @faculties.each do |faculty| %>
+      <li>
 
-  <table>
-    <tbody>
-      <% @faculties.each do |faculty| %>
-        <tr>
-          <td><%= faculty.name %></td>
-          <td><%= faculty.personal_page_link %></td>
-          <td><%= faculty.email %></td>
-          <td><%= faculty.office_location %></td>
-          <td><%= faculty.phone_number %></td>
-          <td><%= faculty.classes %></td>
+        <% if !mobile_device? %>
+          <div class = "faculty_wrapper">
+        <% else %>
+          <div class = "mobile_faculty_wrapper">
+        <% end %>
+
+          <div class = "faculty_picture">
+            <% if !(faculty.avatar.url == "/images/original/missing.png") %>
+              <%= image_tag faculty.avatar.url(:medium) %>
+            <% else %>
+              <%= image_tag "cis_default_photo.png" %>
+            <% end %>
+          </div>
+          
+          <h3><%= faculty.name %></h3>
+          <strong><%= faculty.position %></strong>
+          <br>
+          Office: <%= faculty.office_location %>
+          <br>
+          Phone: <%= faculty.phone_number %>
+          <br>
+          Email: <%= faculty.email %>
+          <br>
+          <%= link_to faculty.personal_page_link, faculty.personal_page_link %>
+          <br>
+          <%= faculty.classes %>
+          <br>
+
           <% if current_user.present? %>
             <% if current_user.faculty? or current_user.admin?  %>
-              <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
-              <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <br>
+              <%= link_to 'Edit', edit_faculty_path(faculty), :class => "button" %>
+              <%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
             <% end %>
           <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
-</div>
+
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+
+<br>
