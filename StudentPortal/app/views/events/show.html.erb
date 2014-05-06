@@ -3,6 +3,15 @@
 
 	<div class = "aProject">
 		<h1><%= @event.name %></h1>
+
+ 		 <p>
+  		  <% if !(@event.avatar.url == "/images/original/missing.png") %>
+  		  <%= image_tag @event.avatar.url(:medium) %>
+ 		 <% else %>
+   		  <%= image_tag "cis_default_photo.png" %>
+  		 <% end %>
+ 		</p>
+
 		Sponsored by: <%= @event.sponsor %>
 
 		<p>
@@ -68,7 +77,6 @@
 		<p>
 			<%= @event.additionalInfo %>
 		</p>
-		
 		<% if current_user.present? %>
 			<% if current_user.faculty? or current_user.admin? %>
 				<p>
