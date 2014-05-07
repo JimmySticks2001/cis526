@@ -1,15 +1,9 @@
 <% if !mobile_device? %>
   <br>
   <br>
+  <br>
 <% end %>
 
-
-<%= form_tag events_path, :method => :get do %>
-  <p>
-	<%= text_field_tag :search, params[:search], :class=>"searchBox"  %>
-	<%= submit_tag "Search", :name => nil, :class => "button" %>
-  </p>
-<% end %>
 
 <% if !mobile_device? %>
 	<% if current_user.present? %>

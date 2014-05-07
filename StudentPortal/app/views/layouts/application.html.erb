@@ -22,12 +22,10 @@
 		<div id="wrap">
 			<div id="header">
 				<div id="clickables">
-					<% flash.each do |name, msg| %>  
-	    				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
-	 			 	<% end %> 
-	 			 	 
 					<% if !mobile_device? %>
 						<div id="signIn">
+							 
+
 							<% if current_user %>
 								Logged in as <%= current_user.userName %>  
 								<a href="/log_out"><input type="submit" name="submit" value="sign out" id="submit" ></a>
@@ -40,7 +38,7 @@
 									<%= label_tag :password %><br />  
 									<%= password_field_tag :password %>  
 									  
-									<%= submit_tag "sign in", id: 'submit'%> 
+									<%= submit_tag "sign in", id: 'submit'%>
 								<% end %>
 							<% end %>
 						</div>
@@ -55,10 +53,17 @@
 									<li><a href="http://support.cis.ksu.edu/FrequentlyAskedQuestions#FrequentlyAskedQuestions.2BAC8-Windows.IneedsomesoftwarebyMicrosoftforaproject.2Ccanyougiveittome.3F">Free Software</a></li>
 								</ul>
 							</ul>
-							
 						</div>
-
+						
+						<% flash.each do |name, msg| %>  
+			    			<%= content_tag :div, msg, :id => "flash_#{name}" %>  
+			 			<% end %>
+					<% else %>
+						<% flash.each do |name, msg| %>  
+		    				<%= content_tag :div, msg, :id => "flash_#{name}" %>  
+		 			 	<% end %> 
 					<% end %>
+
 				</div>
 			</div> <!-- end header -->
 

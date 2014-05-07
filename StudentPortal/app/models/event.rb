@@ -1,13 +1,9 @@
 class Event < ActiveRecord::Base
 
-	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :avatar, :styles => { :medium => "900x900>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/  
 
-	searchable do
-		text :additionalInfo, :boost => 3
-		text :name, :boost => 5
-		text :sponsor, :date_start, :date_end		
-	end
+	
   	has_event_calendar
   
   	validates_datetime :start_at, :on_or_after => lambda { Date.current }
@@ -29,8 +25,6 @@ class Event < ActiveRecord::Base
   	format: { with: /.*[a-zA-Z].*/, 
   	message: "minimum 3 characters, max 56, not all whitespace, and must include letters" }
   
- 
-
 
 	def color
    		if self.important == true 
@@ -40,13 +34,7 @@ class Event < ActiveRecord::Base
    		end
 	end
 	
-	def date_start
-		start_at.strftime("%B %Y")
-	end
 	
-	def date_end
-		end_at.strftime("%B %Y")
-	end
 	
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|

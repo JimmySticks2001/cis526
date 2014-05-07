@@ -3,12 +3,6 @@
   <br>
 <% end %>
 
-<%= form_tag jobs_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search], :class=>"searchBox" %>
-	  <%= submit_tag "Search", :name => nil, :class=>"button" %>
-  </p>
-<% end %>
 
 <% if current_user.present? %>
 	<% if current_user.faculty? or current_user.admin?  %>

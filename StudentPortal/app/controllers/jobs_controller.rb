@@ -4,10 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-  	@search = Job.search do
-  		fulltext params[:search]
-  	end
-      @jobs = @search.results
+  	@jobs = Job.all( :order => "created_at DESC")
   end
 
   # GET /jobs/1

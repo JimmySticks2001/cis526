@@ -163,14 +163,15 @@ html, body
 
 #flash_alert
 {
-	position: absolute;
+	position: relative;
+	float: right;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
 	width: 215px;
-	right: 500px;
-	top: 50px;
+	right: 25px;
+	top: 25px;
 	color: white;
 	font-weight: bold;
 	background: #ff0000;

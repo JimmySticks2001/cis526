@@ -1,11 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@search = Event.search do
-			fulltext params[:search]
-		end
-		@events = @search.results
-		#( :order => "start_at ASC")
+		@events = Event.all( :order => "start_at ASC")
 	end
 
 	def new
