@@ -70,19 +70,20 @@
 			<div id="page">
 				<div id="nav">
 					<ul>
-						<li><a id="1" href="/">Home</a></li>
-						<li><a id="2" href="/events">Events</a></li>
-						<li><a id="3" href="/jobs">Jobs</a></li>
-						<li><a id="4" href="/researches">Research</a></li>
-						<li><a id="5" href="/clubs">Clubs</a></li>
-						<li><a id="6" href="/faculties">Faculty</a></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/events">Events</a></li>
+						<li><a href="/jobs">Jobs</a></li>
+						<li><a href="/researches">Research</a></li>
+						<li><a href="/clubs">Clubs</a></li>
+						<li><a href="/faculties">Faculty</a></li>
 						<% if !mobile_device? %>
-							<li><a id="7" href="https://schedule.cis.ksu.edu/Web">Advising</a></li>
+							<li><a href="https://schedule.cis.ksu.edu/Web">Advising</a></li>
+							<li><a href="http://cis.ksu.edu/courses/descriptions">Courses</a><li>
 						<% else %>
 							<% if current_user %> 
-								<li><a id="7" href="/log_out">Log out</a></li>
+								<li><a href="/log_out">Log out</a></li>
 							<% else %>
-								<li><a id="7" href="/log_in">Log in</a></li>
+								<li><a href="/log_in">Log in</a></li>
 							<% end %>
 						<% end %>
 					</ul>
