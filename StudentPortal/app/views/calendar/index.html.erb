@@ -9,29 +9,28 @@
 	<% @events = Event.all( :order => "start_at ASC") %>
 	<table class="frontPageTables">
 		<% @events.each do |event| %>
-		<tr>
 			<% if event.start_at > DateTime.now.beginning_of_day && event.start_at < DateTime.now.end_of_day%>
-		
-				<td><strong><%= link_to event.name, event %></strong></td>
-				<td class="frontPageEventIcons">
-					<% if event.food == true %>
-						<a sayThings="Free food!" class="tooltip">
-							<%= image_tag "icons/pizza.png", :size => '20x20' %>
-						</a>
-					<% end %>
-					<% if event.swag == true %>
-						<a sayThings="Free swag!" class="tooltip">
-							<%= image_tag "icons/swag.png", :size => '20x20'  %>
-						</a>
-					<% end %>
-					<% if event.comp == true %>
-						<a sayThings="Compete for prizes!" class="tooltip">
-							<%= image_tag "icons/comp.png", :size => '20x20'  %>
-						</a>
-					<% end %>
-				</td>
+				<tr>
+					<td><strong><%= link_to event.name, event %></strong></td>
+					<td class="frontPageEventIcons">
+						<% if event.food == true %>
+							<a sayThings="Free food!" class="tooltip">
+								<%= image_tag "icons/pizza.png", :size => '20x20' %>
+							</a>
+						<% end %>
+						<% if event.swag == true %>
+							<a sayThings="Free swag!" class="tooltip">
+								<%= image_tag "icons/swag.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+						<% if event.comp == true %>
+							<a sayThings="Compete for prizes!" class="tooltip">
+								<%= image_tag "icons/comp.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+					</td>
+				</tr>
 			<% end %>
-		</tr>
 		<% end %>
 	</table>
 </div>
@@ -46,30 +45,28 @@
 		
 	<table class="frontPageTables">
 		<% @events.each do |event| %>
-		<tr>
 			<% if event.start_at > DateTime.now.beginning_of_day + 1.days && event.start_at < DateTime.now.beginning_of_day + 7.days && event.important == true%>
-		
-				<td><strong><%= link_to event.name, event %></strong></td>
-				<td class="frontPageEventIcons">
-					<% if event.food == true %>
-						<a sayThings="Free food!" class="tooltip">
-							<%= image_tag "icons/pizza.png", :size => '20x20' %>
-						</a>
-					<% end %>
-					<% if event.swag == true %>
-						<a sayThings="Free swag!" class="tooltip">
-							<%= image_tag "icons/swag.png", :size => '20x20'  %>
-						</a>
-					<% end %>
-					<% if event.comp == true %>
-						<a sayThings="Compete for prizes!" class="tooltip">
-							<%= image_tag "icons/comp.png", :size => '20x20'  %>
-						</a>
-					<% end %>
-				</td>
+				<tr>
+					<td><strong><%= link_to event.name, event %></strong></td>
+					<td class="frontPageEventIcons">
+						<% if event.food == true %>
+							<a sayThings="Free food!" class="tooltip">
+								<%= image_tag "icons/pizza.png", :size => '20x20' %>
+							</a>
+						<% end %>
+						<% if event.swag == true %>
+							<a sayThings="Free swag!" class="tooltip">
+								<%= image_tag "icons/swag.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+						<% if event.comp == true %>
+							<a sayThings="Compete for prizes!" class="tooltip">
+								<%= image_tag "icons/comp.png", :size => '20x20'  %>
+							</a>
+						<% end %>
+					</td>
+				</tr>
 			<% end %>
-			
-		</tr>
 		<% end %>
 	</table>
 </div>
